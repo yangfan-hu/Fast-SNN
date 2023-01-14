@@ -10,7 +10,7 @@ For training quantized ANNs, we follow the protocol defined in [Additive Powers-
 
 For their detailed codes, please refer to [APoT_Quantization](https://github.com/yhhhli/APoT_Quantization)
 
-##Image Classification
+## Image Classification
 
 
 
