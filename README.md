@@ -84,7 +84,7 @@ python -m torch.distributed.launch --nproc_per_node=4 snn_ft.py -a alexnet -b 12
 
 
 
-### PASCAL VOC 2007
+### PASCAL VOC 2012
 
 
 ### MS COCO 20117
