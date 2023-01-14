@@ -1,5 +1,5 @@
 # Fast-SNN
-This repo holds the codes for .
+This repo holds the codes for Fast-SNN.
 
 ## Dependencies
 * Python 3.8.8
@@ -9,6 +9,15 @@ This repo holds the codes for .
 For training quantized ANNs, we follow the protocol defined in [Additive Powers-of-Two Quantization: An Efficient Non-uniform Discretization for Neural Networks](https://openreview.net/group?id=ICLR.cc/2020/Conference)
 
 For their detailed codes, please refer to [APoT_Quantization](https://github.com/yhhhli/APoT_Quantization)
+
+##Image Classification
+
+
+
+
+
+
+
 
 ## CIFAR-10
 
