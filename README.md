@@ -77,7 +77,11 @@ python -m torch.distributed.launch --nproc_per_node=4 snn_ft.py -a alexnet -b 12
 
 ## Semantic Segmentation
 
-[vedaseg](https://github.com/Media-Smart/vedaseg) is an open source semantic segmentation toolbox based on PyTorch.
+
+[vedaseg](https://github.com/Media-Smart/vedaseg), an open source semantic segmentation toolbox based on PyTorch.
+
+[README](https://github.com/Media-Smart/vedaseg/blob/master/README.md)
+
 
 
 ### PASCAL VOC 2007
