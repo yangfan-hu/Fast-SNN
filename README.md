@@ -13,13 +13,7 @@ For their detailed codes, please refer to [APoT_Quantization](https://github.com
 ## Image Classification
 
 
-
-
-
-
-
-
-## CIFAR-10
+### CIFAR-10
 
 We progressively train full precision, 4, 3, and 2 bit ANN models.
 ```
@@ -45,7 +39,7 @@ python snn_ft.py --arch alex --bit 3 -id 2  -n 1 --force --init result/alex_3bit
 python snn_ft.py --arch alex --bit 2 -id 2  -n 1 --force --init result/alex_2bit/model_best.pth.tar
 ```
 
-## ImageNet
+### ImageNet
 
 With 32-bit pre-trained models from torchvision, we progressively 4, 3, and 2 bit ANN models.
 ```
@@ -68,3 +62,14 @@ Finetune converted SNN models. By default, we use signed IF neuron model in fine
 python -m torch.distributed.launch --nproc_per_node=4 snn_ft.py -a alexnet -b 128 --bit 3 --init result/alexnet_3bit/model_best.pth.tar --workers 4 --dali_cpu /data/imagenet2012
 python -m torch.distributed.launch --nproc_per_node=4 snn_ft.py -a alexnet -b 128 --bit 2 --init result/alexnet_2bit/model_best.pth.tar --workers 4 --dali_cpu /data/imagenet2012
 ```
+
+## Object Detection
+
+
+
+
+
+## Semantic Segmentation
+
+
+
