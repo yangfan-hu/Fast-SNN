@@ -32,8 +32,8 @@ python snn.py --arch alex --bit 2 -id 2 -e -u --init result/alex_2bit/model_best
 ```
 Finetune converted SNN models. By default, we use signed IF neuron model in fine-tuning. 
 ```
-python snn_ft.py --arch alex --bit 3 -id 2  -n 8 --init result/alex_3bit/model_best.pth.tar
-python snn_ft.py --arch alex --bit 2 -id 2  -n 8 --init result/alex_2bit/model_best.pth.tar
+python snn_ft.py --arch alex --bit 3 -id 2  -n 1 --force --init result/alex_3bit/model_best.pth.tar
+python snn_ft.py --arch alex --bit 2 -id 2  -n 1 --force --init result/alex_2bit/model_best.pth.tar
 ```
 
 ## ImageNet
