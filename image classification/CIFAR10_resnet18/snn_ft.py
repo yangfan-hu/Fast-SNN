@@ -30,6 +30,8 @@ parser.add_argument('-ct', '--cifar-type', default='10', type=int, metavar='CT',
 parser.add_argument('--init', help='initialize form pre-trained floating point model', type=str, default='')
 parser.add_argument('-id', '--device', default='0', type=str, help='gpu device')
 parser.add_argument('--bit', default=2, type=int, help='the bit-width of the quantized network')
+parser.add_argument('-n', '--num_epochs', default=1, type=int, help='number of epochs for fine-tuning')
+parser.add_argument('--force', action='store_true', help='Force tuner to always update weights')
 
 best_prec = 0
 args = parser.parse_args()
@@ -117,7 +119,11 @@ def main():
     model.eval()
     snn.eval()
     
-    best_acc = validate(testloader, snn, nn.CrossEntropyLoss())
+    
+    best_acc = 0
+    acc = 0
+    if not args.force:
+           best_acc = validate(trainloader, snn, nn.CrossEntropyLoss())
     
     bypass_blocks(model, num_blocks)
     model.layer4.idem = True
@@ -169,7 +175,7 @@ def main():
             record[k] = v.cpu()        
         
         
-        for epoch in range(1):
+        for epoch in range(args.num_epochs):
             batch_time = AverageMeter()
             data_time = AverageMeter()
             losses = AverageMeter()    
@@ -242,15 +248,15 @@ def main():
                 switch_on(snn, i, num_blocks)          
             snn.layer4.idem = False
             
-            # acc = validate(testloader, snn, nn.CrossEntropyLoss())
+            acc = validate(trainloader, snn, nn.CrossEntropyLoss())
             
             for i in range(layer_id//2+1, (num_layers-4)//2):
                 switch_off(snn, i, num_blocks)              
             snn.layer4.idem = True
             
-            if 1:
+            if acc > best_acc or args.force:
                 print('Update...')
-                # best_acc = acc
+                best_acc = acc
                 m = getattr(snn, 'layer' + str(segment_id))
                 m = getattr(m, str(block_id))        
                 record = m.state_dict()        
