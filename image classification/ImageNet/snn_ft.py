@@ -472,7 +472,7 @@ def main():
                     getattr(snn.module, 'flat').idem = False
                 
                 train_loader.reset()
-                [prec1, prec5] = validate(val_loader, snn, criterion)  
+                [prec1, prec5] = validate(train_loader, snn, criterion)  
                 
                 #set identity
                 for i in range(layer_id + 1, num_layers + 1):
