@@ -40,6 +40,21 @@ python snn_ft.py --arch alex --bit 2 -id 2  -n 1 --force --init result/alex_2bit
 ```
 
 ### ImageNet
+We use distributed data parallel (DDP) for training. Please refer to Pytorch [DDP](https://pytorch.org/tutorials/intermediate/ddp_tutorial.html) for details.
+
+To speed up data loading, we replace the vanilla [Pytorch](https://pytorch.org/vision/0.8/datasets.html) dataloader with [nvidia-dali](https://developer.nvidia.com/dali).
+
+Nvidia-dali package
+```bash
+# for CUDA 10
+pip install --extra-index-url https://developer.download.nvidia.com/compute/redist nvidia-dali-cuda100
+# for CUDA 11
+pip install --extra-index-url https://developer.download.nvidia.com/compute/redist nvidia-dali-cuda110
+```
+
+For more details on nvidia-dali, please refer to NVIDIA's official document [NVIDIA DALI Documentation](https://docs.nvidia.com/deeplearning/dali/user-guide/docs/)
+
+
 
 With 32-bit pre-trained models from torchvision, we progressively 4, 3, and 2 bit ANN models.
 ```
