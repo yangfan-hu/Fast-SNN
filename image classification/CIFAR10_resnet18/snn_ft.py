@@ -243,16 +243,16 @@ def main():
                            data_time=data_time, loss=losses))      
                 # break
             
-            
-            for i in range(layer_id//2+1, (num_layers-4)//2):
-                switch_on(snn, i, num_blocks)          
-            snn.layer4.idem = False
-            
-            acc = validate(trainloader, snn, nn.CrossEntropyLoss())
-            
-            for i in range(layer_id//2+1, (num_layers-4)//2):
-                switch_off(snn, i, num_blocks)              
-            snn.layer4.idem = True
+            if not args.force:
+                for i in range(layer_id//2+1, (num_layers-4)//2):
+                    switch_on(snn, i, num_blocks)          
+                snn.layer4.idem = False
+                
+                acc = validate(trainloader, snn, nn.CrossEntropyLoss())
+                
+                for i in range(layer_id//2+1, (num_layers-4)//2):
+                    switch_off(snn, i, num_blocks)              
+                snn.layer4.idem = True
             
             if acc > best_acc or args.force:
                 print('Update...')
