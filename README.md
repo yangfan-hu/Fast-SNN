@@ -33,7 +33,7 @@ Evaluate SNN performance with signed IF neuron model. An 3/2-bit ANN is converte
 python snn.py --arch alex --bit 3 -id 2 -e -u --init result/alex_3bit/model_best.pth.tar
 python snn.py --arch alex --bit 2 -id 2 -e -u --init result/alex_2bit/model_best.pth.tar
 ```
-Finetune converted SNN models. By default, we use signed IF neuron model in fine-tuning. 
+Finetune converted SNN models. By default, we use signed IF neuron model during fine-tuning. 
 ```
 python snn_ft.py --arch alex --bit 3 -id 2  -n 1 --force --init result/alex_3bit/model_best.pth.tar
 python snn_ft.py --arch alex --bit 2 -id 2  -n 1 --force --init result/alex_2bit/model_best.pth.tar
@@ -66,10 +66,25 @@ python -m torch.distributed.launch --nproc_per_node=4 snn_ft.py -a alexnet -b 12
 ## Object Detection
 
 
+[yolov2-yolov3_PyTorch](https://github.com/yjh0410/yolov2-yolov3_PyTorch)
 
+
+### PASCAL VOC 2007
+
+
+### MS COCO 2017
 
 
 ## Semantic Segmentation
+
+[vedaseg](https://github.com/Media-Smart/vedaseg) is an open source semantic segmentation toolbox based on PyTorch.
+
+
+### PASCAL VOC 2007
+
+
+### MS COCO 20117
+
 
 
 
