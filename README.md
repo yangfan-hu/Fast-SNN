@@ -23,6 +23,8 @@ By default, the dataset is supposed to be in a 'data' folder at the same lavel o
 
 #### Training Quantized ANNs
 We progressively train full precision, 4, 3, and 2 bit ANN models.
+
+An example to train 32/4/3/2-bit AlexNet
 ```
 python main.py --arch alex --bit 32 -id 2 --wd 5e-4
 python main.py --arch alex --bit 4 -id 2 --wd 1e-4  --lr 4e-2 --init result/alex_32bit/model_best.pth.tar
@@ -32,6 +34,11 @@ python main.py --arch alex --bit 2 -id 2 --wd 3e-5  --lr 4e-2 --init result/alex
 
 #### Evaluating Converted SNNs 
 
+
+```
+optinal arguments:
+    --u                    Use unsigned IF neuron model
+```
 
 Evaluate SNN performance with traditional unsigned IF neuron model. An 3/2-bit ANN is converted to an SNN with T=3/7.
 ```
