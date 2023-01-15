@@ -113,6 +113,8 @@ python -m torch.distributed.launch --nproc_per_node=4 snn_ft.py -a alexnet -b 12
 
 [yolov2-yolov3_PyTorch](https://github.com/yjh0410/yolov2-yolov3_PyTorch)
 
+### Preparation 
+About required packages and datasets, please refer to [README](https://github.com/yjh0410/yolov2-yolov3_PyTorch/blob/master/README.md) in yolov2-yolov3_PyTorch. 
 
 ### PASCAL VOC 2007
 
@@ -129,7 +131,6 @@ python eval.py -d voc --cuda -v yolov2_tiny --bit 3 --spike --init CHECKPOINT_PA
 python eval.py -d voc --cuda -v yolov2_tiny --bit 2 --spike --init CHECKPOINT_PATH
 ```
 
-
 ### MS COCO 2017
 
 
@@ -138,8 +139,8 @@ python eval.py -d voc --cuda -v yolov2_tiny --bit 2 --spike --init CHECKPOINT_PA
 
 [vedaseg](https://github.com/Media-Smart/vedaseg), an open source semantic segmentation toolbox based on PyTorch.
 
-[README](https://github.com/Media-Smart/vedaseg/blob/master/README.md)
-
+### Preparation 
+About required packages and datasets, please refer to [README](https://github.com/Media-Smart/vedaseg/blob/master/README.md) in vedaseg for preparation. 
 
 
 ### PASCAL VOC 2012
