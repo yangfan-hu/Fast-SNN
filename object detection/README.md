@@ -1,5 +1,5 @@
 # How to prepare yolov2-yolov3_PyTorch
-
+Credits to [yjh0410](https://github.com/yjh0410)
 
 ## Update
 Recently, I optimize my YOLO project:
