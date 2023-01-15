@@ -14,8 +14,9 @@ For more details, please refer to [APoT_Quantization](https://github.com/yhhhli/
 
 
 ### CIFAR-10
-We 
 
+#### Architectures
+For network architectures, we currently support AlexNet, VGG11 (in 'CIFAR10'), ResNet-20/32/44/56/110 (in 'CIFAR-10'), and [ResNet-18](https://github.com/Gus-Lab/temporal_efficient_training) (in 'CIFAR10_resnet18).
 
 #### Dataset
 By default, the dataset is supposed to be in a 'data' folder at the same lavel of 'main.py'
