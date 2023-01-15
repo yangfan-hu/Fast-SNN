@@ -16,7 +16,7 @@ For more details, please refer to [APoT_Quantization](https://github.com/yhhhli/
 ### CIFAR-10
 
 #### Architectures
-For network architectures, we currently support AlexNet, VGG11 (in 'CIFAR10'), ResNet-20/32/44/56/110 (in 'CIFAR-10'), and [ResNet-18](https://github.com/Gus-Lab/temporal_efficient_training) (in 'CIFAR10_resnet18'). For AlexNet, VGG11, and ResNet-20/32/44/56/110, we quantize both weights and activations. For ResNet-18, we quantize just activations. 
+For network architectures, we currently support AlexNet, VGG11 (in 'CIFAR10'), ResNet-20/32/44/56/110 (in 'CIFAR-10'), and [ResNet-18](https://github.com/Gus-Lab/temporal_efficient_training) (in 'CIFAR10_resnet18'). For AlexNet, VGG11, and ResNet-20/32/44/56/110, we quantize both weights and activations. For ResNet-18, we quantize activations. 
 
 #### Dataset
 By default, the dataset is supposed to be in a 'data' folder at the same lavel of 'main.py'
@@ -114,7 +114,7 @@ python -m torch.distributed.launch --nproc_per_node=4 snn_ft.py -a alexnet -b 12
 [yolov2-yolov3_PyTorch](https://github.com/yjh0410/yolov2-yolov3_PyTorch)
 
 ### Preparation 
-About required packages and datasets, please refer to [README](https://github.com/yjh0410/yolov2-yolov3_PyTorch/blob/master/README.md) in yolov2-yolov3_PyTorch. 
+About required packages and datasets, please refer to [README](https://github.com/yjh0410/yolov2-yolov3_PyTorch/blob/master/README.md) in yolov2-yolov3_PyTorch. In the 'object detection' folder, we also prepare a merged README detailing everything. 
 
 ### PASCAL VOC 2007
 
@@ -136,11 +136,10 @@ python eval.py -d voc --cuda -v yolov2_tiny --bit 2 --spike --init CHECKPOINT_PA
 
 ## Semantic Segmentation
 
-
 [vedaseg](https://github.com/Media-Smart/vedaseg), an open source semantic segmentation toolbox based on PyTorch.
 
 ### Preparation 
-About required packages and datasets, please refer to [README](https://github.com/Media-Smart/vedaseg/blob/master/README.md) in vedaseg for preparation. 
+About required packages and datasets, please refer to [README](https://github.com/Media-Smart/vedaseg/blob/master/README.md) in vedaseg for preparation. In the 'semantic segmentation' folder, we also prepare a merged README detailing everything. 
 
 
 ### PASCAL VOC 2012
