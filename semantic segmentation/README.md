@@ -1,3 +1,6 @@
+
+#How to prepare vedaseg
+
 ## Introduction
 
 vedaseg is an open source semantic segmentation toolbox based on PyTorch.
@@ -240,3 +243,86 @@ Firstly, install [flexinfer](https://github.com/Media-Smart/flexinfer) and see t
 ## Contact
 
 This repository is currently maintained by Yuxin Zou ([@YuxinZou](https://github.com/YuxinZou)), Tianhe Wang([@DarthThomas](https://github.com/DarthThomas)), Hongxiang Cai ([@hxcai](http://github.com/hxcai)), Yichao Xiong ([@mileistone](https://github.com/mileistone)).
+
+# Semantic Segmentation with SNNs
+### Architecture 
+We currently support Deeplabv1 (VGG9) and Deeplabv3 (ResNet-34 + ASPP).
+
+### PASCAL VOC 2012
+
+#### Train Quantized ANNs
+
+Example: train VGG9 with activations qunatized to 32/4/3/2 bits. 
+```
+bash ./tools/dist_train.sh configs/voc_deeplabv1.py "0, 1, 2, 3" 
+bash ./tools/dist_train.sh configs/voc_deeplabv1_4bit.py "0, 1, 2, 3" 
+bash ./tools/dist_train.sh configs/voc_deeplabv1_3bit.py "0, 1, 2, 3" 
+bash ./tools/dist_train.sh configs/voc_deeplabv1_2bit.py "0, 1, 2, 3" 
+```
+
+Example: train ResNet-34 + ASPP with activations qunatized to 32/4/3/2 bits. 
+```
+bash ./tools/dist_train.sh configs/voc_deeplabv3.py "0, 1, 2, 3" 
+bash ./tools/dist_train.sh configs/voc_deeplabv3_4bit.py "0, 1, 2, 3" 
+bash ./tools/dist_train.sh configs/voc_deeplabv3_3bit.py "0, 1, 2, 3" 
+bash ./tools/dist_train.sh configs/voc_deeplabv3_2bit.py "0, 1, 2, 3" 
+```
+#### Evaluate Models
+
+Example: evaluate VGG9 (SNN) with T = 15, 7, 3
+```
+bash ./tools/dist_test.sh configs/voc_deeplabv1_T15.py './workdir/voc_deeplabv1_4bit/best_mIoU.pth' "0, 1, 2, 3" 
+bash ./tools/dist_test.sh configs/voc_deeplabv1_T7.py './workdir/voc_deeplabv1_3bit/best_mIoU.pth' "0, 1, 2, 3" 
+bash ./tools/dist_test.sh configs/voc_deeplabv1_T3.py './workdir/voc_deeplabv1_2bit/best_mIoU.pth' "0, 1, 2, 3" 
+```
+
+Example: evaluate ResNet-34 + ASPP (SNN) with T = 15, 7, 3
+```
+bash ./tools/dist_test.sh configs/voc_deeplabv3_T15.py './workdir/voc_deeplabv3_4bit/best_mIoU.pth' "0, 1, 2, 3" 
+bash ./tools/dist_test.sh configs/voc_deeplabv3_T7.py './workdir/voc_deeplabv3_3bit/best_mIoU.pth' "0, 1, 2, 3" 
+bash ./tools/dist_test.sh configs/voc_deeplabv3_T3.py './workdir/voc_deeplabv3_2bit/best_mIoU.pth' "0, 1, 2, 3" 
+```
+
+### MS COCO 20117
+
+#### Train Quantized ANNs
+
+Example: train VGG9 with activations qunatized to 32/4/3/2 bits. 
+```
+bash ./tools/dist_train.sh configs/coco_deeplabv1.py "0, 1, 2, 3, 6, 7" 
+bash ./tools/dist_train.sh configs/coco_deeplabv1_4bit.py "0, 1, 2, 3, 6, 7" 
+bash ./tools/dist_train.sh configs/coco_deeplabv1_3bit.py "0, 1, 2, 3" 
+bash ./tools/dist_train.sh configs/coco_deeplabv1_2bit.py "0, 1, 2, 3" 
+```
+Example: train ResNet-34 + ASPP with activations qunatized to 32/4/3/2 bits. 
+```
+bash ./tools/dist_train.sh configs/coco_deeplabv3.py "0, 1, 2, 3" 
+bash ./tools/dist_train.sh configs/coco_deeplabv3_4bit.py "0, 1, 2, 3" 
+bash ./tools/dist_train.sh configs/coco_deeplabv3_3bit.py "0, 1, 2, 3" 
+bash ./tools/dist_train.sh configs/coco_deeplabv3_2bit.py "0, 1, 2, 3" 
+```
+
+#### Evaluate Models
+
+Example: evaluate VGG9 (SNN) with T = 15, 7, 3
+```
+bash ./tools/dist_test.sh configs/coco_deeplabv1_T15.py './workdir/coco_deeplabv1_4bit/best_mIoU.pth' "0, 1, 2, 3" 
+bash ./tools/dist_test.sh configs/coco_deeplabv1_T7.py './workdir/coco_deeplabv1_3bit/best_mIoU.pth' "0, 1, 2, 3" 
+bash ./tools/dist_test.sh configs/coco_deeplabv1_T3.py './workdir/coco_deeplabv1_2bit/best_mIoU.pth' "0, 1, 2, 3" 
+```
+Example: evaluate ResNet-34 + ASPP (SNN) with T = 15, 7, 3
+```
+bash ./tools/dist_test.sh configs/coco_deeplabv3_T15.py './workdir/coco_deeplabv3_4bit/best_mIoU.pth' "0, 1, 2, 3" 
+bash ./tools/dist_test.sh configs/coco_deeplabv3_T7.py './workdir/coco_deeplabv3_3bit/best_mIoU.pth' "0, 1, 2, 3" 
+bash ./tools/dist_test.sh configs/coco_deeplabv3_T3.py './workdir/coco_deeplabv3_2bit/best_mIoU.pth' "0, 1, 2, 3" 
+```
+
+
+
+
+
+
+
+
+
+
