@@ -24,7 +24,7 @@ By default, the dataset is supposed to be in a 'data' folder at the same lavel o
 #### Train Quantized ANNs
 We progressively train full precision, 4, 3, and 2 bit ANN models.
 
-An example to train 32/4/3/2-bit AlexNet
+An example to train AlexNet:
 ```
 python main.py --arch alex --bit 32 --wd 5e-4
 python main.py --arch alex --bit 4 --wd 1e-4  --lr 4e-2 --init result/alex_32bit/model_best.pth.tar
@@ -81,9 +81,10 @@ pip install --extra-index-url https://developer.download.nvidia.com/compute/redi
 
 For more details on nvidia-dali, please refer to NVIDIA's official document [NVIDIA DALI Documentation](https://docs.nvidia.com/deeplearning/dali/user-guide/docs/)
 
-
+#### Train Qantized ANNs
 
 With 32-bit pre-trained models from torchvision, we progressively 4, 3, and 2 bit ANN models.
+An example to train AlexNet:
 ```
 python -m torch.distributed.launch --nproc_per_node=4 dali_main.py -a alexnet -b 256 --bit 4 --workers 4 --lr=0.025 --epochs 60 --dali_cpu /data/imagenet2012
 python -m torch.distributed.launch --nproc_per_node=4 dali_main.py -a alexnet -b 256 --bit 3 --init result/alexnet_4bit/model_best.pth.tar --workers 4 --lr=0.0025 --epochs 60 --dali_cpu /data/imagenet2012
