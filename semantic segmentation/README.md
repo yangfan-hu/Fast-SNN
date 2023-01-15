@@ -245,12 +245,12 @@ Firstly, install [flexinfer](https://github.com/Media-Smart/flexinfer) and see t
 This repository is currently maintained by Yuxin Zou ([@YuxinZou](https://github.com/YuxinZou)), Tianhe Wang([@DarthThomas](https://github.com/DarthThomas)), Hongxiang Cai ([@hxcai](http://github.com/hxcai)), Yichao Xiong ([@mileistone](https://github.com/mileistone)).
 
 # Semantic Segmentation with SNNs
-### Architecture 
+## Architecture 
 We currently support Deeplabv1 (VGG9) and Deeplabv3 (ResNet-34 + ASPP).
 
-### PASCAL VOC 2012
+## PASCAL VOC 2012
 
-#### Train Quantized ANNs
+### Train Quantized ANNs
 
 Example: train VGG9 with activations qunatized to 32/4/3/2 bits. 
 ```
@@ -283,9 +283,9 @@ bash ./tools/dist_test.sh configs/voc_deeplabv3_T7.py './workdir/voc_deeplabv3_3
 bash ./tools/dist_test.sh configs/voc_deeplabv3_T3.py './workdir/voc_deeplabv3_2bit/best_mIoU.pth' "0, 1, 2, 3" 
 ```
 
-### MS COCO 20117
+## MS COCO 20117
 
-#### Train Quantized ANNs
+### Train Quantized ANNs
 
 Example: train VGG9 with activations qunatized to 32/4/3/2 bits. 
 ```
@@ -302,7 +302,7 @@ bash ./tools/dist_train.sh configs/coco_deeplabv3_3bit.py "0, 1, 2, 3"
 bash ./tools/dist_train.sh configs/coco_deeplabv3_2bit.py "0, 1, 2, 3" 
 ```
 
-#### Evaluate Models
+### Evaluate Models
 
 Example: evaluate VGG9 (SNN) with T = 15, 7, 3
 ```
