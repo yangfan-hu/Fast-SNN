@@ -86,9 +86,9 @@ For more details on nvidia-dali, please refer to NVIDIA's official document [NVI
 With 32-bit pre-trained models from torchvision, we progressively 4, 3, and 2 bit ANN models.
 An example to train AlexNet:
 ```
-python -m torch.distributed.launch --nproc_per_node=4 dali_main.py -a alexnet -b 256 --bit 4 --workers 4 --lr=0.025 --epochs 60 --dali_cpu /data/imagenet2012
-python -m torch.distributed.launch --nproc_per_node=4 dali_main.py -a alexnet -b 256 --bit 3 --init result/alexnet_4bit/model_best.pth.tar --workers 4 --lr=0.0025 --epochs 60 --dali_cpu /data/imagenet2012
-python -m torch.distributed.launch --nproc_per_node=4 dali_main.py -a alexnet -b 256 --bit 2 --init result/alexnet_3bit/model_best.pth.tar --workers 4 --lr=0.0025 --epochs 60 --dali_cpu /data/imagenet2012
+python -m torch.distributed.launch --nproc_per_node=4 dali_main.py -a alexnet -b 256 --bit 4 --workers 4 --lr=0.1 --epochs 60 --dali_cpu /data/imagenet2012
+python -m torch.distributed.launch --nproc_per_node=4 dali_main.py -a alexnet -b 256 --bit 3 --init result/alexnet_4bit/model_best.pth.tar --workers 4 --lr=0.01 --epochs 60 --dali_cpu /data/imagenet2012
+python -m torch.distributed.launch --nproc_per_node=4 dali_main.py -a alexnet -b 256 --bit 2 --init result/alexnet_3bit/model_best.pth.tar --workers 4 --lr=0.01 --epochs 60 --dali_cpu /data/imagenet2012
 ```
 Evaluate SNN performance with traditional unsigned IF neuron model. A 3/2-bit ANN is converted to an SNN with T=7/3.
 ```
