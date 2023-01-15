@@ -119,7 +119,7 @@ python -m torch.distributed.launch --nproc_per_node=4 snn_ft.py -a alexnet -b 12
 We use [yolov2-yolov3_PyTorch](https://github.com/yjh0410/yolov2-yolov3_PyTorch) as the framework for object detection.
 
 ### Preparation 
-About required packages and datasets, please refer to [README](https://github.com/yjh0410/yolov2-yolov3_PyTorch/blob/master/README.md) in [yolov2-yolov3_PyTorch](https://github.com/yjh0410/yolov2-yolov3_PyTorch) for preparation. In the 'object detection' folder, we also prepare a merged README detailing everything. 
+About required packages and datasets, please refer to [README](https://github.com/yjh0410/yolov2-yolov3_PyTorch/blob/master/README.md) in [yolov2-yolov3_PyTorch](https://github.com/yjh0410/yolov2-yolov3_PyTorch) for preparation. In the 'object detection' folder, we also prepare a merged [README](https://github.com/yangfan-hu/Fast-SNN/blob/main/object%20detection/README.md) detailing everything. 
 
 ### Architecture
 We currently support Tiny YOLO and YOLOv2 with a ResNet-34 backbone. 
@@ -183,7 +183,7 @@ python eval.py -d coco-val --cuda -v yolov2_tiny --bit 2 --spike --init CHECKPOI
 We use [vedaseg](https://github.com/Media-Smart/vedaseg), an open source semantic segmentation toolbox based on PyTorch, as the framework for semantic segmentation.
 
 ### Preparation 
-About required packages and datasets, please refer to [README](https://github.com/Media-Smart/vedaseg/blob/master/README.md) in [vedaseg](https://github.com/Media-Smart/vedaseg) for preparation. In the 'semantic segmentation' folder, we also prepare a merged README detailing everything. 
+About required packages and datasets, please refer to [README](https://github.com/Media-Smart/vedaseg/blob/master/README.md) in [vedaseg](https://github.com/Media-Smart/vedaseg) for preparation. In the 'semantic segmentation' folder, we also prepare a merged [README](https://github.com/yangfan-hu/Fast-SNN/blob/main/semantic%20segmentation/README.md) detailing everything. 
 
 ### Architecture 
 We currently support Deeplabv1 (VGG9) and Deeplabv3 (ResNet-34 + ASPP).
