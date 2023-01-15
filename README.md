@@ -143,7 +143,7 @@ python -m torch.distributed.launch --nproc_per_node=4 train.py -d voc -v yolov2_
 python -m torch.distributed.launch --nproc_per_node=4 train.py -d voc -v yolov2_tiny -ms --ema --sybn --batch_size 4 --bit 3 --init CHECKPOINT_PATH
 python -m torch.distributed.launch --nproc_per_node=4 train.py -d voc -v yolov2_tiny -ms --ema --sybn --batch_size 4 --bit 2 --init CHECKPOINT_PATH
 ```
-#### Evaluation
+#### Evaluate Models
 
 ```
 optinal arguments:
@@ -159,7 +159,7 @@ python eval.py -d voc --cuda -v yolov2_tiny --bit 2 --spike --init CHECKPOINT_PA
 
 ### MS COCO 2017
 
-##### Train
+##### Train Quantized ANNs
 
 ```
 python -m torch.distributed.launch --nproc_per_node=4 train.py -d coco -v yolov2_tiny --bit 32 -ms --ema --sybn --batch_size 4 
@@ -168,7 +168,7 @@ python -m torch.distributed.launch --nproc_per_node=4 train.py -d coco -v yolov2
 python -m torch.distributed.launch --nproc_per_node=4 train.py -d coco -v yolov2_tiny --bit 2 -ms --ema --sybn --batch_size 4 --init CHECKPOINT_PATH
 ```
 
-##### Eval
+##### Evaluate Models
 
 ```
 python eval.py -d coco-val --cuda -v yolov2_tiny --bit 4 --spike --init CHECKPOINT_PATH
@@ -188,7 +188,7 @@ We currently support Deeplabv1 (VGG9) and Deeplabv3 (ResNet-34 + ASPP).
 
 ### PASCAL VOC 2012
 
-#### Train
+#### Train Quantized ANNs
 
 ```
 bash ./tools/dist_train.sh configs/voc_deeplabv1.py "0, 1, 2, 3" 
@@ -197,7 +197,7 @@ bash ./tools/dist_train.sh configs/voc_deeplabv1_3bit.py "0, 1, 2, 3"
 bash ./tools/dist_train.sh configs/voc_deeplabv1_2bit.py "0, 1, 2, 3" 
 ```
 
-#### Eval
+#### Evaluate Models
 
 ```
 bash ./tools/dist_test.sh configs/voc_deeplabv1_T15.py './workdir/voc_deeplabv1_4bit/best_mIoU.pth' "0, 1, 2, 3" 
@@ -207,7 +207,7 @@ bash ./tools/dist_test.sh configs/voc_deeplabv1_T3.py './workdir/voc_deeplabv1_2
 
 ### MS COCO 20117
 
-#### Train
+#### Train Quantized ANNs
 
 ```
 bash ./tools/dist_train.sh configs/coco_deeplabv1.py "0, 1, 2, 3, 6, 7" 
@@ -216,7 +216,8 @@ bash ./tools/dist_train.sh configs/coco_deeplabv1_3bit.py "0, 1, 2, 3"
 bash ./tools/dist_train.sh configs/coco_deeplabv1_2bit.py "0, 1, 2, 3" 
 ```
 
-### Eval
+#### Evaluate Models
+
 ```
 bash ./tools/dist_test.sh configs/coco_deeplabv1_T15.py './workdir/coco_deeplabv1_4bit/best_mIoU.pth' "0, 1, 2, 3" 
 bash ./tools/dist_test.sh configs/coco_deeplabv1_T7.py './workdir/coco_deeplabv1_3bit/best_mIoU.pth' "0, 1, 2, 3" 
