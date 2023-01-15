@@ -1,5 +1,6 @@
 
 # How to prepare vedaseg
+Credits to [YuxinZou](https://github.com/YuxinZou), [DarthThomas](https://github.com/DarthThomas), [hxcai](https://github.com/hxcai) and [mileistone](https://github.com/mileistone)  
 
 ## Introduction
 
