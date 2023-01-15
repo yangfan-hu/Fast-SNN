@@ -82,8 +82,7 @@ pip install --extra-index-url https://developer.download.nvidia.com/compute/redi
 For more details on nvidia-dali, please refer to NVIDIA's official document [NVIDIA DALI Documentation](https://docs.nvidia.com/deeplearning/dali/user-guide/docs/)
 
 #### Train Qantized ANNs
-
-With 32-bit pre-trained models from torchvision, we progressively 4, 3, and 2 bit ANN models.
+With full-precision pre-trained models from [TorchVision](https://pytorch.org/vision/stable/index.html), we progressively 4, 3, and 2 bit ANN models.
 An example to train AlexNet:
 ```
 python -m torch.distributed.launch --nproc_per_node=4 dali_main.py -a alexnet -b 256 --bit 4 --workers 4 --lr=0.1 --epochs 60 --dali_cpu /data/imagenet2012
