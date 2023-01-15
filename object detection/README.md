@@ -302,9 +302,4 @@ Example: evaluate Tiny YOLO (SNN) with T = 15, 7, 3
 python eval.py -d coco-val --cuda -v yolov2_tiny --bit 4 --spike --init CHECKPOINT_PATH
 python eval.py -d coco-val --cuda -v yolov2_tiny --bit 3 --spike --init CHECKPOINT_PATH
 python eval.py -d coco-val --cuda -v yolov2_tiny --bit 2 --spike --init CHECKPOINT_PATH 
-
-
-
-
-
-
+```
