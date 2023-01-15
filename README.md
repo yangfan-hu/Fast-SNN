@@ -92,26 +92,29 @@ python -m torch.distributed.launch --nproc_per_node=4 dali_main.py -a alexnet -b
 python -m torch.distributed.launch --nproc_per_node=4 dali_main.py -a alexnet -b 256 --bit 3 --init result/alexnet_4bit/model_best.pth.tar --workers 4 --lr=0.01 --epochs 60 --dali_cpu /data/imagenet2012
 python -m torch.distributed.launch --nproc_per_node=4 dali_main.py -a alexnet -b 256 --bit 2 --init result/alexnet_3bit/model_best.pth.tar --workers 4 --lr=0.01 --epochs 60 --dali_cpu /data/imagenet2012
 ```
-Evaluate SNN performance with traditional unsigned IF neuron model. A 3/2-bit ANN is converted to an SNN with T=7/3.
+
+#### Evaluate Converted SNNs
+
+Example: AlexNet (SNN) performance with traditional unsigned IF neuron model. A 3/2-bit ANN is converted to an SNN with T=7/3.
 ```
 python -m torch.distributed.launch --nproc_per_node=4 snn.py -a alexnet -b 256 -e -u --bit 3 --init result/alexnet_3bit/model_best.pth.tar --workers 4 --dali_cpu /data/imagenet2012
 python -m torch.distributed.launch --nproc_per_node=4 snn.py -a alexnet -b 256 -e -u --bit 2 --init result/alexnet_2bit/model_best.pth.tar --workers 4 --dali_cpu /data/imagenet2012
 ```
-Evaluate SNN performance with signed IF neuron model. A 3/2-bit ANN is converted to an SNN with T=7/3.
+Example: AlexNEt (SNN) performance with signed IF neuron model. A 3/2-bit ANN is converted to an SNN with T=7/3.
 ```
 python -m torch.distributed.launch --nproc_per_node=4 snn.py -a alexnet -b 256 -e --bit 3 --init result/alexnet_3bit/model_best.pth.tar --workers 4 --dali_cpu /data/imagenet2012
 python -m torch.distributed.launch --nproc_per_node=4 snn.py -a alexnet -b 256 -e --bit 2 --init result/alexnet_2bit/model_best.pth.tar --workers 4 --dali_cpu /data/imagenet2012
 ```
-Finetune converted SNN models. By default, we use signed IF neuron model in fine-tuning. 
+### Finetune converted SNNs 
+By default, we use signed IF neuron model in fine-tuning. 
+Example:
 ```
-python -m torch.distributed.launch --nproc_per_node=4 snn_ft.py -a alexnet -b 128 --bit 3 --init result/alexnet_3bit/model_best.pth.tar --workers 4 --dali_cpu /data/imagenet2012
-python -m torch.distributed.launch --nproc_per_node=4 snn_ft.py -a alexnet -b 128 --bit 2 --init result/alexnet_2bit/model_best.pth.tar --workers 4 --dali_cpu /data/imagenet2012
+python -m torch.distributed.launch --nproc_per_node=4 snn_ft.py -a alexnet -b 128 --bit 3 -n 8 --init result/alexnet_3bit/model_best.pth.tar --workers 4 --dali_cpu /data/imagenet2012
+python -m torch.distributed.launch --nproc_per_node=4 snn_ft.py -a alexnet -b 128 --bit 2 -n 8 --init result/alexnet_2bit/model_best.pth.tar --workers 4 --dali_cpu /data/imagenet2012
 ```
 
 ## Object Detection
-
-
-[yolov2-yolov3_PyTorch](https://github.com/yjh0410/yolov2-yolov3_PyTorch)
+We use [yolov2-yolov3_PyTorch](https://github.com/yjh0410/yolov2-yolov3_PyTorch) as the framework for object detection.
 
 ### Preparation 
 About required packages and datasets, please refer to [README](https://github.com/yjh0410/yolov2-yolov3_PyTorch/blob/master/README.md) in yolov2-yolov3_PyTorch. In the 'object detection' folder, we also prepare a merged README detailing everything. 
@@ -135,12 +138,10 @@ python eval.py -d voc --cuda -v yolov2_tiny --bit 2 --spike --init CHECKPOINT_PA
 
 
 ## Semantic Segmentation
-
-[vedaseg](https://github.com/Media-Smart/vedaseg), an open source semantic segmentation toolbox based on PyTorch.
+We use [vedaseg](https://github.com/Media-Smart/vedaseg), an open source semantic segmentation toolbox based on PyTorch, as the framework for semantic segmentation.
 
 ### Preparation 
 About required packages and datasets, please refer to [README](https://github.com/Media-Smart/vedaseg/blob/master/README.md) in vedaseg for preparation. In the 'semantic segmentation' folder, we also prepare a merged README detailing everything. 
-
 
 ### PASCAL VOC 2012
 
