@@ -136,7 +136,7 @@ optinal arguments:
 
 #### Train Quantized ANNs
 
-Example: Tiny YOLO with activations qunatized to 32/4/3/2 bits. 
+Example: train Tiny YOLO with activations qunatized to 32/4/3/2 bits. 
 ```
 python -m torch.distributed.launch --nproc_per_node=4 train.py -d voc -v yolov2_tiny -ms --ema --sybn --batch_size 4 --bit 32
 python -m torch.distributed.launch --nproc_per_node=4 train.py -d voc -v yolov2_tiny -ms --ema --sybn --batch_size 4 --bit 4 --init CHECKPOINT_PATH
@@ -150,7 +150,7 @@ optinal arguments:
     --spike               Evaluate with spikes (as SNNs)
 ```
 
-
+Example: evaluate Tiny YOLO (SNN) with T = 15, 7, 3
 ```
 python eval.py -d voc --cuda -v yolov2_tiny --bit 4 --spike --init CHECKPOINT_PATH
 python eval.py -d voc --cuda -v yolov2_tiny --bit 3 --spike --init CHECKPOINT_PATH
@@ -161,6 +161,7 @@ python eval.py -d voc --cuda -v yolov2_tiny --bit 2 --spike --init CHECKPOINT_PA
 
 ##### Train Quantized ANNs
 
+Example: train Tiny YOLO with activations qunatized to 32/4/3/2 bits. 
 ```
 python -m torch.distributed.launch --nproc_per_node=4 train.py -d coco -v yolov2_tiny --bit 32 -ms --ema --sybn --batch_size 4 
 python -m torch.distributed.launch --nproc_per_node=4 train.py -d coco -v yolov2_tiny --bit 4 -ms --ema --sybn --batch_size 4  --init CHECKPOINT_PATH
@@ -170,6 +171,7 @@ python -m torch.distributed.launch --nproc_per_node=4 train.py -d coco -v yolov2
 
 ##### Evaluate Models
 
+Example: evaluate Tiny YOLO (SNN) with T = 15, 7, 3
 ```
 python eval.py -d coco-val --cuda -v yolov2_tiny --bit 4 --spike --init CHECKPOINT_PATH
 python eval.py -d coco-val --cuda -v yolov2_tiny --bit 3 --spike --init CHECKPOINT_PATH
@@ -190,6 +192,7 @@ We currently support Deeplabv1 (VGG9) and Deeplabv3 (ResNet-34 + ASPP).
 
 #### Train Quantized ANNs
 
+Example: train VGG9 with activations qunatized to 32/4/3/2 bits. 
 ```
 bash ./tools/dist_train.sh configs/voc_deeplabv1.py "0, 1, 2, 3" 
 bash ./tools/dist_train.sh configs/voc_deeplabv1_4bit.py "0, 1, 2, 3" 
@@ -199,6 +202,7 @@ bash ./tools/dist_train.sh configs/voc_deeplabv1_2bit.py "0, 1, 2, 3"
 
 #### Evaluate Models
 
+Example: evaluate VGG9 (SNN) with T = 15, 7, 3
 ```
 bash ./tools/dist_test.sh configs/voc_deeplabv1_T15.py './workdir/voc_deeplabv1_4bit/best_mIoU.pth' "0, 1, 2, 3" 
 bash ./tools/dist_test.sh configs/voc_deeplabv1_T7.py './workdir/voc_deeplabv1_3bit/best_mIoU.pth' "0, 1, 2, 3" 
@@ -209,6 +213,7 @@ bash ./tools/dist_test.sh configs/voc_deeplabv1_T3.py './workdir/voc_deeplabv1_2
 
 #### Train Quantized ANNs
 
+Example: train VGG9 with activations qunatized to 32/4/3/2 bits. 
 ```
 bash ./tools/dist_train.sh configs/coco_deeplabv1.py "0, 1, 2, 3, 6, 7" 
 bash ./tools/dist_train.sh configs/coco_deeplabv1_4bit.py "0, 1, 2, 3, 6, 7" 
@@ -218,6 +223,7 @@ bash ./tools/dist_train.sh configs/coco_deeplabv1_2bit.py "0, 1, 2, 3"
 
 #### Evaluate Models
 
+Example: evaluate VGG9 (SNN) with T = 15, 7, 3
 ```
 bash ./tools/dist_test.sh configs/coco_deeplabv1_T15.py './workdir/coco_deeplabv1_4bit/best_mIoU.pth' "0, 1, 2, 3" 
 bash ./tools/dist_test.sh configs/coco_deeplabv1_T7.py './workdir/coco_deeplabv1_3bit/best_mIoU.pth' "0, 1, 2, 3" 
