@@ -220,6 +220,13 @@ bash ./tools/dist_train.sh configs/coco_deeplabv1_4bit.py "0, 1, 2, 3, 6, 7"
 bash ./tools/dist_train.sh configs/coco_deeplabv1_3bit.py "0, 1, 2, 3" 
 bash ./tools/dist_train.sh configs/coco_deeplabv1_2bit.py "0, 1, 2, 3" 
 ```
+Example: train ResNet-34 + ASPP with activations qunatized to 32/4/3/2 bits. 
+```
+bash ./tools/dist_train.sh configs/coco_deeplabv3.py "0, 1, 2, 3" 
+bash ./tools/dist_train.sh configs/coco_deeplabv3_4bit.py "0, 1, 2, 3" 
+bash ./tools/dist_train.sh configs/coco_deeplabv3_3bit.py "0, 1, 2, 3" 
+bash ./tools/dist_train.sh configs/coco_deeplabv3_2bit.py "0, 1, 2, 3" 
+```
 
 #### Evaluate Models
 
@@ -229,4 +236,9 @@ bash ./tools/dist_test.sh configs/coco_deeplabv1_T15.py './workdir/coco_deeplabv
 bash ./tools/dist_test.sh configs/coco_deeplabv1_T7.py './workdir/coco_deeplabv1_3bit/best_mIoU.pth' "0, 1, 2, 3" 
 bash ./tools/dist_test.sh configs/coco_deeplabv1_T3.py './workdir/coco_deeplabv1_2bit/best_mIoU.pth' "0, 1, 2, 3" 
 ```
-
+Example: evaluate ResNet-34 + ASPP (SNN) with T = 15, 7, 3
+```
+bash ./tools/dist_test.sh configs/coco_deeplabv3_T15.py './workdir/coco_deeplabv3_4bit/best_mIoU.pth' "0, 1, 2, 3" 
+bash ./tools/dist_test.sh configs/coco_deeplabv3_T7.py './workdir/coco_deeplabv3_3bit/best_mIoU.pth' "0, 1, 2, 3" 
+bash ./tools/dist_test.sh configs/coco_deeplabv3_T3.py './workdir/coco_deeplabv3_2bit/best_mIoU.pth' "0, 1, 2, 3" 
+```
