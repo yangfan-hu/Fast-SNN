@@ -121,7 +121,19 @@ We use [yolov2-yolov3_PyTorch](https://github.com/yjh0410/yolov2-yolov3_PyTorch)
 ### Preparation 
 About required packages and datasets, please refer to [README](https://github.com/yjh0410/yolov2-yolov3_PyTorch/blob/master/README.md) in [yolov2-yolov3_PyTorch](https://github.com/yjh0410/yolov2-yolov3_PyTorch) for preparation. In the 'object detection' folder, we also prepare a merged README detailing everything. 
 
+### Architecture
+We currently support Tiny YOLO and YOLOv2 with a ResNet-34 backbone. 
+
+```
+optinal arguments:
+    --version / -v               Supported architecture
+                                 available: yolov2_tiny, yolov2_r34
+```
+
+
 ### PASCAL VOC 2007
+
+#### Tiny YOLO
 
 ```
 python -m torch.distributed.launch --nproc_per_node=4 train.py -d voc -v yolov2_tiny -ms --ema --sybn --batch_size 4 --bit 32
@@ -135,6 +147,29 @@ python eval.py -d voc --cuda -v yolov2_tiny --bit 4 --spike --init CHECKPOINT_PA
 python eval.py -d voc --cuda -v yolov2_tiny --bit 3 --spike --init CHECKPOINT_PATH
 python eval.py -d voc --cuda -v yolov2_tiny --bit 2 --spike --init CHECKPOINT_PATH
 ```
+
+#### YOLOv2(ResNet-34)
+Train
+```
+python -m torch.distributed.launch --nproc_per_node=4 train.py -d voc -v yolov2_r34 -ms --ema --sybn --batch_size 4 --bit 32
+python -m torch.distributed.launch --nproc_per_node=4 train.py -d voc -v yolov2_r34 -ms --ema --sybn --batch_size 4 --bit 4 --init CHECKPOINT_PATH
+python -m torch.distributed.launch --nproc_per_node=4 train.py -d voc -v yolov2_r34 -ms --ema --sybn --batch_size 4 --bit 3 --init CHECKPOINT_PATH
+python -m torch.distributed.launch --nproc_per_node=4 train.py -d voc -v yolov2_r34 -ms --ema --sybn --batch_size 4 --bit 2 --init CHECKPOINT_PATH
+```
+Eval 
+
+
+
+```
+python eval.py -d voc --cuda -v yolov2_r34 --bit 4 --spike --init CHECKPOINT_PATH
+python eval.py -d voc --cuda -v yolov2_r34 --bit 3 --spike --init CHECKPOINT_PATH
+python eval.py -d voc --cuda -v yolov2_r34 --bit 2 --spike --init CHECKPOINT_PATH
+
+```
+
+
+
+
 
 ### MS COCO 2017
 
