@@ -52,6 +52,7 @@ python snn.py --arch alex --bit 2 -e -u --init result/alex_2bit/model_best.pth.t
 #### Fine-tune Converted SNNs
 By default, we use signed IF neuron model during fine-tuning. 
 
+'''
 optinal arguments:
     --num_epochs / -n               Number of epochs to fine-tune at each layer
                                     default: 1
