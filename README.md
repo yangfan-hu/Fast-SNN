@@ -35,10 +35,6 @@ python main.py --arch alex --bit 2 --wd 3e-5  --lr 4e-2 --init result/alex_3bit/
 #### Evaluate Converted SNNs 
 The time steps of SNNs are automatically calculated from activation precision, i.e., T = 2^b-1.
 ```
-python snn.py --arch ARCHITECTURE --bit PRECISION -id GPU_id -e --init CHECKPOINT_PATH
-```
-
-```
 optinal arguments:
     --u                    Use unsigned IF neuron model
 ```
