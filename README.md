@@ -14,7 +14,13 @@ For more details, please refer to [APoT_Quantization](https://github.com/yhhhli/
 
 
 ### CIFAR-10
+We 
 
+
+#### Dataset
+By default, the dataset is supposed to be in a 'data' folder at the same lavel of 'main.py'
+
+#### Training Quantized ANNs
 We progressively train full precision, 4, 3, and 2 bit ANN models.
 ```
 python main.py --arch alex --bit 32 -id 2 --wd 5e-4
@@ -22,6 +28,9 @@ python main.py --arch alex --bit 4 -id 2 --wd 1e-4  --lr 4e-2 --init result/alex
 python main.py --arch alex --bit 3 -id 2 --wd 1e-4  --lr 4e-2 --init result/alex_4bit/model_best.pth.tar
 python main.py --arch alex --bit 2 -id 2 --wd 3e-5  --lr 4e-2 --init result/alex_3bit/model_best.pth.tar
 ```
+
+#### Evaluating Converted SNNs 
+
 
 Evaluate SNN performance with traditional unsigned IF neuron model. An 3/2-bit ANN is converted to an SNN with T=3/7.
 ```
@@ -33,6 +42,10 @@ Evaluate SNN performance with signed IF neuron model. An 3/2-bit ANN is converte
 python snn.py --arch alex --bit 3 -id 2 -e -u --init result/alex_3bit/model_best.pth.tar
 python snn.py --arch alex --bit 2 -id 2 -e -u --init result/alex_2bit/model_best.pth.tar
 ```
+
+
+#### Fine-tuning Converted SNNs
+
 Finetune converted SNN models. By default, we use signed IF neuron model during fine-tuning. 
 ```
 python snn_ft.py --arch alex --bit 3 -id 2  -n 1 --force --init result/alex_3bit/model_best.pth.tar
