@@ -134,14 +134,22 @@ optinal arguments:
 ### PASCAL VOC 2007
 
 
-#### Train
+#### Train Quantized ANNs
+
+Example: Tiny YOLO with activations qunatized to 32/4/3/2 bits. 
 ```
 python -m torch.distributed.launch --nproc_per_node=4 train.py -d voc -v yolov2_tiny -ms --ema --sybn --batch_size 4 --bit 32
 python -m torch.distributed.launch --nproc_per_node=4 train.py -d voc -v yolov2_tiny -ms --ema --sybn --batch_size 4 --bit 4 --init CHECKPOINT_PATH
 python -m torch.distributed.launch --nproc_per_node=4 train.py -d voc -v yolov2_tiny -ms --ema --sybn --batch_size 4 --bit 3 --init CHECKPOINT_PATH
 python -m torch.distributed.launch --nproc_per_node=4 train.py -d voc -v yolov2_tiny -ms --ema --sybn --batch_size 4 --bit 2 --init CHECKPOINT_PATH
 ```
-#### Eval
+#### Evaluation
+
+```
+optinal arguments:
+    --spike               Evaluate with spikes (as SNNs)
+```
+
 
 ```
 python eval.py -d voc --cuda -v yolov2_tiny --bit 4 --spike --init CHECKPOINT_PATH
@@ -163,9 +171,9 @@ python -m torch.distributed.launch --nproc_per_node=4 train.py -d coco -v yolov2
 ##### Eval
 
 ```
-python eval.py -d coco-val --cuda -v yolov2_tiny --bit 4 --spike --root /data/hyf --init CHECKPOINT_PATH
-python eval.py -d coco-val --cuda -v yolov2_tiny --bit 3 --spike --root /data/hyf --init CHECKPOINT_PATH
-python eval.py -d coco-val --cuda -v yolov2_tiny --bit 2 --spike --root /data/hyf --init CHECKPOINT_PATH 
+python eval.py -d coco-val --cuda -v yolov2_tiny --bit 4 --spike --init CHECKPOINT_PATH
+python eval.py -d coco-val --cuda -v yolov2_tiny --bit 3 --spike --init CHECKPOINT_PATH
+python eval.py -d coco-val --cuda -v yolov2_tiny --bit 2 --spike --init CHECKPOINT_PATH 
 ```
 
 
