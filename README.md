@@ -81,6 +81,9 @@ pip install --extra-index-url https://developer.download.nvidia.com/compute/redi
 
 For more details on nvidia-dali, please refer to NVIDIA's official document [NVIDIA DALI Documentation](https://docs.nvidia.com/deeplearning/dali/user-guide/docs/)
 
+#### Architectures
+For network architectures, we currently support AlexNet and VGG16.
+
 #### Train Qantized ANNs
 With full-precision pre-trained models from [TorchVision](https://pytorch.org/vision/stable/index.html), we progressively 4, 3, and 2 bit ANN models.
 An example to train AlexNet:
