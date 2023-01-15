@@ -86,6 +86,7 @@ For network architectures, we currently support AlexNet and VGG16.
 
 #### Train Qantized ANNs
 With full-precision pre-trained models from [TorchVision](https://pytorch.org/vision/stable/index.html), we progressively 4, 3, and 2 bit ANN models.
+
 An example to train AlexNet:
 ```
 python -m torch.distributed.launch --nproc_per_node=4 dali_main.py -a alexnet -b 256 --bit 4 --workers 4 --lr=0.1 --epochs 60 --dali_cpu /data/imagenet2012
@@ -107,6 +108,7 @@ python -m torch.distributed.launch --nproc_per_node=4 snn.py -a alexnet -b 256 -
 ```
 ### Finetune converted SNNs 
 By default, we use signed IF neuron model in fine-tuning. 
+
 Example:
 ```
 python -m torch.distributed.launch --nproc_per_node=4 snn_ft.py -a alexnet -b 128 --bit 3 -n 8 --init result/alexnet_3bit/model_best.pth.tar --workers 4 --dali_cpu /data/imagenet2012
