@@ -1,4 +1,7 @@
-# Update
+# How to prepare yolov2-yolov3_PyTorch
+
+
+## Update
 Recently, I optimize my YOLO project:
 
 https://github.com/yjh0410/PyTorch_YOLO-Family
@@ -14,7 +17,7 @@ In my new YOLO project, you can enjoy:
 - YOLO-Nano
 
 
-# This project
+## This project
 In this project, you can enjoy: 
 - YOLOv2 with DarkNet-19
 - YOLOv2 with ResNet-50
@@ -34,10 +37,10 @@ Password d266
 
 You can download all my models from the above links.
 
-# YOLOv2
+## YOLOv2
 
-## YOLOv2 with DarkNet-19
-### Tricks
+### YOLOv2 with DarkNet-19
+#### Tricks
 Tricks in official paper:
 - [x] batch norm
 - [x] hi-res classifier
@@ -50,7 +53,7 @@ Tricks in official paper:
 - [x] multi-scale
 - [x] hi-red detector
 
-## VOC2007
+### VOC2007
 
 <table><tbody>
 <tr><th align="left" bgcolor=#f8f8f8> </th>     <td bgcolor=white> size </td><td bgcolor=white> Original (darknet) </td><td bgcolor=white> Ours (pytorch) 160peochs </td><td bgcolor=white> Ours (pytorch) 250epochs </td></tr>
@@ -58,7 +61,7 @@ Tricks in official paper:
 <tr><th align="left" bgcolor=#f8f8f8> VOC07 test</th><td bgcolor=white> 544 </td><td bgcolor=white> 78.6 </td><td bgcolor=white> 77.0 </td><td bgcolor=white> 78.1 </td></tr>
 </table></tbody>
 
-## COCO
+### COCO
 
 <table><tbody>
 <tr><th align="left" bgcolor=#f8f8f8> </th>     <td bgcolor=white> data </td><td bgcolor=white> AP </td><td bgcolor=white> AP50 </td><td bgcolor=white> AP75 </td><td bgcolor=white> AP_S </td><td bgcolor=white> AP_M </td><td bgcolor=white> AP_L </td></tr>
@@ -71,7 +74,7 @@ Tricks in official paper:
 </table></tbody>
 
 
-## YOLOv2 with ResNet-50
+### YOLOv2 with ResNet-50
 
 I replace darknet-19 with resnet-50 and get a better result on COCO-val
 
@@ -89,16 +92,16 @@ I replace darknet-19 with resnet-50 and get a better result on COCO-val
 <tr><th align="left" bgcolor=#f8f8f8> Our YOLOv2-608</th><td bgcolor=white> COCO eval </td><td bgcolor=white> 29.2 </td><td bgcolor=white> 51.6 </td><td bgcolor=white> 29.1 </td><td bgcolor=white> 13.6 </td><td bgcolor=white> 36.8 </td><td bgcolor=white> 40.5 </td></tr>
 </table></tbody>
 
-# YOLOv3
+## YOLOv3
 
-## VOC2007
+### VOC2007
 
 <table><tbody>
 <tr><th align="left" bgcolor=#f8f8f8> </th>     <td bgcolor=white> size </td><td bgcolor=white> Original (darknet) </td><td bgcolor=white> Ours (pytorch) 250epochs </td></tr>
 <tr><th align="left" bgcolor=#f8f8f8> VOC07 test</th><td bgcolor=white> 416 </td><td bgcolor=white> 80.25 </td><td bgcolor=white> 81.4 </td></tr>
 </table></tbody>
 
-# COCO
+## COCO
 
 Official YOLOv3:
 
@@ -124,8 +127,8 @@ Our YOLOv3:
 <tr><th align="left" bgcolor=#f8f8f8> YOLOv3-608</th><td bgcolor=white> COCO test-dev </td><td bgcolor=white> 37.6 </td><td bgcolor=white> 59.4 </td><td bgcolor=white> 39.9 </td><td bgcolor=white> 20.4 </td><td bgcolor=white> 39.9 </td><td bgcolor=white> 48.2 </td></tr>
 </table></tbody>
 
-# YOLOv3SPP
-## COCO:
+## YOLOv3SPP
+### COCO:
 
 <table><tbody>
 <tr><th align="left" bgcolor=#f8f8f8> </th>     <td bgcolor=white> data </td><td bgcolor=white> AP </td><td bgcolor=white> AP50 </td><td bgcolor=white> AP75 </td><td bgcolor=white> AP_S </td><td bgcolor=white> AP_M </td><td bgcolor=white> AP_L </td></tr>
@@ -139,7 +142,7 @@ Our YOLOv3:
 
 </table></tbody>
 
-# YOLOv3Tiny
+## YOLOv3Tiny
 <table><tbody>
 <tr><th align="left" bgcolor=#f8f8f8> </th>     <td bgcolor=white> data </td><td bgcolor=white> AP </td><td bgcolor=white> AP50 </td><td bgcolor=white> AP75 </td><td bgcolor=white> AP_S </td><td bgcolor=white> AP_M </td><td bgcolor=white> AP_L </td></tr>
 
@@ -150,14 +153,14 @@ Our YOLOv3:
 </table></tbody>
 
 
-# Installation
+## Installation
 - Pytorch-gpu 1.1.0/1.2.0/1.3.0
 - Tensorboard 1.14.
 - opencv-python, python3.6/3.7
 
-# Dataset
+## Dataset
 
-## VOC Dataset
+### VOC Dataset
 I copy the download files from the following excellent project:
 https://github.com/amdegroot/ssd.pytorch
 
@@ -169,36 +172,36 @@ Password：4la9
 
 You will get a ```VOCdevkit.zip```, then what you need to do is just to unzip it and put it into ```data/```. After that, the whole path to VOC dataset is ```data/VOCdevkit/VOC2007``` and ```data/VOCdevkit/VOC2012```.
 
-### Download VOC2007 trainval & test
+#### Download VOC2007 trainval & test
 
 ```Shell
 # specify a directory for dataset to be downloaded into, else default is ~/data/
 sh data/scripts/VOC2007.sh # <directory>
 ```
 
-### Download VOC2012 trainval
+#### Download VOC2012 trainval
 ```Shell
 # specify a directory for dataset to be downloaded into, else default is ~/data/
 sh data/scripts/VOC2012.sh # <directory>
 ```
 
-## MSCOCO Dataset
+### MSCOCO Dataset
 I copy the download files from the following excellent project:
 https://github.com/DeNA/PyTorch_YOLOv3
 
-### Download MSCOCO 2017 dataset
+#### Download MSCOCO 2017 dataset
 Just run ```sh data/scripts/COCO2017.sh```. You will get COCO train2017, val2017, test2017.
 
 
-# Train
-## VOC
+## Train
+### VOC
 ```Shell
 python train.py -d voc --cuda -v [select a model] -hr -ms --ema
 ```
 
 You can run ```python train.py -h``` to check all optional argument.
 
-## COCO
+### COCO
 If you have only one gpu:
 ```Shell
 python train.py -d coco --cuda -v [select a model] -hr -ms --ema
@@ -213,25 +216,25 @@ python -m torch.distributed.launch --nproc_per_node=8 train.py -d coco --cuda -v
                                                                         --batch_size 4
 ```
 
-# Test
-## VOC
+## Test
+### VOC
 ```Shell
 python test.py -d voc --cuda -v [select a model] --trained_model [ Please input the path to model dir. ]
 ```
 
-## COCO
+### COCO
 ```Shell
 python test.py -d coco-val --cuda -v [select a model] --trained_model [ Please input the path to model dir. ]
 ```
 
 
-# Evaluation
-## VOC
+## Evaluation
+### VOC
 ```Shell
 python eval.py -d voc --cuda -v [select a model] --train_model [ Please input the path to model dir. ]
 ```
 
-## COCO
+### COCO
 To run on COCO_val:
 ```Shell
 python eval.py -d coco-val --cuda -v [select a model] --train_model [ Please input the path to model dir. ]
@@ -242,3 +245,66 @@ To run on COCO_test-dev(You must be sure that you have downloaded test2017):
 python eval.py -d coco-test --cuda -v [select a model] --train_model [ Please input the path to model dir. ]
 ```
 You will get a .json file which can be evaluated on COCO test server.
+
+# Object Detection with SNNs
+
+## Architecture
+We currently support Tiny YOLO and YOLOv2 with a ResNet-34 backbone. 
+
+```
+optinal arguments:
+    --version / -v               Supported architecture
+                                 available: yolov2_tiny, yolov2_r34
+```
+
+## PASCAL VOC 2007
+
+
+### Train Quantized ANNs
+
+Example: train Tiny YOLO with activations qunatized to 32/4/3/2 bits. 
+```
+python -m torch.distributed.launch --nproc_per_node=4 train.py -d voc -v yolov2_tiny -ms --ema --sybn --batch_size 4 --bit 32
+python -m torch.distributed.launch --nproc_per_node=4 train.py -d voc -v yolov2_tiny -ms --ema --sybn --batch_size 4 --bit 4 --init CHECKPOINT_PATH
+python -m torch.distributed.launch --nproc_per_node=4 train.py -d voc -v yolov2_tiny -ms --ema --sybn --batch_size 4 --bit 3 --init CHECKPOINT_PATH
+python -m torch.distributed.launch --nproc_per_node=4 train.py -d voc -v yolov2_tiny -ms --ema --sybn --batch_size 4 --bit 2 --init CHECKPOINT_PATH
+```
+### Evaluate Models
+
+```
+optinal arguments:
+    --spike               Evaluate with spikes (as SNNs)
+```
+
+Example: evaluate Tiny YOLO (SNN) with T = 15, 7, 3
+```
+python eval.py -d voc --cuda -v yolov2_tiny --bit 4 --spike --init CHECKPOINT_PATH
+python eval.py -d voc --cuda -v yolov2_tiny --bit 3 --spike --init CHECKPOINT_PATH
+python eval.py -d voc --cuda -v yolov2_tiny --bit 2 --spike --init CHECKPOINT_PATH
+```
+
+## MS COCO 2017
+
+### Train Quantized ANNs
+
+Example: train Tiny YOLO with activations qunatized to 32/4/3/2 bits. 
+```
+python -m torch.distributed.launch --nproc_per_node=4 train.py -d coco -v yolov2_tiny --bit 32 -ms --ema --sybn --batch_size 4 
+python -m torch.distributed.launch --nproc_per_node=4 train.py -d coco -v yolov2_tiny --bit 4 -ms --ema --sybn --batch_size 4  --init CHECKPOINT_PATH
+python -m torch.distributed.launch --nproc_per_node=4 train.py -d coco -v yolov2_tiny --bit 3 -ms --ema --sybn --batch_size 4 --init CHECKPOINT_PATH
+python -m torch.distributed.launch --nproc_per_node=4 train.py -d coco -v yolov2_tiny --bit 2 -ms --ema --sybn --batch_size 4 --init CHECKPOINT_PATH
+```
+
+### Evaluate Models
+
+Example: evaluate Tiny YOLO (SNN) with T = 15, 7, 3
+```
+python eval.py -d coco-val --cuda -v yolov2_tiny --bit 4 --spike --init CHECKPOINT_PATH
+python eval.py -d coco-val --cuda -v yolov2_tiny --bit 3 --spike --init CHECKPOINT_PATH
+python eval.py -d coco-val --cuda -v yolov2_tiny --bit 2 --spike --init CHECKPOINT_PATH 
+
+
+
+
+
+
