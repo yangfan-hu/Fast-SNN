@@ -133,14 +133,15 @@ optinal arguments:
 
 ### PASCAL VOC 2007
 
-#### Tiny YOLO
 
+#### Train
 ```
 python -m torch.distributed.launch --nproc_per_node=4 train.py -d voc -v yolov2_tiny -ms --ema --sybn --batch_size 4 --bit 32
 python -m torch.distributed.launch --nproc_per_node=4 train.py -d voc -v yolov2_tiny -ms --ema --sybn --batch_size 4 --bit 4 --init CHECKPOINT_PATH
 python -m torch.distributed.launch --nproc_per_node=4 train.py -d voc -v yolov2_tiny -ms --ema --sybn --batch_size 4 --bit 3 --init CHECKPOINT_PATH
 python -m torch.distributed.launch --nproc_per_node=4 train.py -d voc -v yolov2_tiny -ms --ema --sybn --batch_size 4 --bit 2 --init CHECKPOINT_PATH
 ```
+#### Eval
 
 ```
 python eval.py -d voc --cuda -v yolov2_tiny --bit 4 --spike --init CHECKPOINT_PATH
@@ -148,30 +149,24 @@ python eval.py -d voc --cuda -v yolov2_tiny --bit 3 --spike --init CHECKPOINT_PA
 python eval.py -d voc --cuda -v yolov2_tiny --bit 2 --spike --init CHECKPOINT_PATH
 ```
 
-#### YOLOv2(ResNet-34)
-Train
-```
-python -m torch.distributed.launch --nproc_per_node=4 train.py -d voc -v yolov2_r34 -ms --ema --sybn --batch_size 4 --bit 32
-python -m torch.distributed.launch --nproc_per_node=4 train.py -d voc -v yolov2_r34 -ms --ema --sybn --batch_size 4 --bit 4 --init CHECKPOINT_PATH
-python -m torch.distributed.launch --nproc_per_node=4 train.py -d voc -v yolov2_r34 -ms --ema --sybn --batch_size 4 --bit 3 --init CHECKPOINT_PATH
-python -m torch.distributed.launch --nproc_per_node=4 train.py -d voc -v yolov2_r34 -ms --ema --sybn --batch_size 4 --bit 2 --init CHECKPOINT_PATH
-```
-Eval 
-
-
-
-```
-python eval.py -d voc --cuda -v yolov2_r34 --bit 4 --spike --init CHECKPOINT_PATH
-python eval.py -d voc --cuda -v yolov2_r34 --bit 3 --spike --init CHECKPOINT_PATH
-python eval.py -d voc --cuda -v yolov2_r34 --bit 2 --spike --init CHECKPOINT_PATH
-
-```
-
-
-
-
-
 ### MS COCO 2017
+
+##### Train
+
+```
+python -m torch.distributed.launch --nproc_per_node=4 train.py -d coco -v yolov2_tiny --bit 32 -ms --ema --sybn --batch_size 4 
+python -m torch.distributed.launch --nproc_per_node=4 train.py -d coco -v yolov2_tiny --bit 4 -ms --ema --sybn --batch_size 4  --init CHECKPOINT_PATH
+python -m torch.distributed.launch --nproc_per_node=4 train.py -d coco -v yolov2_tiny --bit 3 -ms --ema --sybn --batch_size 4 --init CHECKPOINT_PATH
+python -m torch.distributed.launch --nproc_per_node=4 train.py -d coco -v yolov2_tiny --bit 2 -ms --ema --sybn --batch_size 4 --init CHECKPOINT_PATH
+```
+
+##### Eval
+
+```
+python eval.py -d coco-val --cuda -v yolov2_tiny --bit 4 --spike --root /data/hyf --init CHECKPOINT_PATH
+python eval.py -d coco-val --cuda -v yolov2_tiny --bit 3 --spike --root /data/hyf --init CHECKPOINT_PATH
+python eval.py -d coco-val --cuda -v yolov2_tiny --bit 2 --spike --root /data/hyf --init CHECKPOINT_PATH 
+```
 
 
 ## Semantic Segmentation
@@ -180,11 +175,40 @@ We use [vedaseg](https://github.com/Media-Smart/vedaseg), an open source semanti
 ### Preparation 
 About required packages and datasets, please refer to [README](https://github.com/Media-Smart/vedaseg/blob/master/README.md) in [vedaseg](https://github.com/Media-Smart/vedaseg) for preparation. In the 'semantic segmentation' folder, we also prepare a merged README detailing everything. 
 
+### Architecture 
+We currently support Deeplabv1 (VGG9) and Deeplabv3 (ResNet-34 + ASPP).
+
 ### PASCAL VOC 2012
 
+#### Train
+
+```
+bash ./tools/dist_train.sh configs/voc_deeplabv1.py "0, 1, 2, 3" 
+bash ./tools/dist_train.sh configs/voc_deeplabv1_4bit.py "0, 1, 2, 3" 
+bash ./tools/dist_train.sh configs/voc_deeplabv1_3bit.py "0, 1, 2, 3" 
+bash ./tools/dist_train.sh configs/voc_deeplabv1_2bit.py "0, 1, 2, 3" 
+```
+
+#### Eval
+
+```
+bash ./tools/dist_test.sh configs/voc_deeplabv1_T15.py './workdir/voc_deeplabv1_4bit/best_mIoU.pth' "0, 1, 2, 3" 
+bash ./tools/dist_test.sh configs/voc_deeplabv1_T7.py './workdir/voc_deeplabv1_3bit/best_mIoU.pth' "0, 1, 2, 3" 
+bash ./tools/dist_test.sh configs/voc_deeplabv1_T3.py './workdir/voc_deeplabv1_2bit/best_mIoU.pth' "0, 1, 2, 3" 
+```
 
 ### MS COCO 20117
 
+#### Train
+bash ./tools/dist_train.sh configs/coco_deeplabv1.py "0, 1, 2, 3, 6, 7" 
+bash ./tools/dist_train.sh configs/coco_deeplabv1_4bit.py "0, 1, 2, 3, 6, 7" 
+bash ./tools/dist_train.sh configs/coco_deeplabv1_3bit.py "0, 1, 2, 3" 
+bash ./tools/dist_train.sh configs/coco_deeplabv1_2bit.py "0, 1, 2, 3" 
 
-
+### Eval
+```
+bash ./tools/dist_test.sh configs/coco_deeplabv1_T15.py './workdir/coco_deeplabv1_4bit/best_mIoU.pth' "0, 1, 2, 3" 
+bash ./tools/dist_test.sh configs/coco_deeplabv1_T7.py './workdir/coco_deeplabv1_3bit/best_mIoU.pth' "0, 1, 2, 3" 
+bash ./tools/dist_test.sh configs/coco_deeplabv1_T3.py './workdir/coco_deeplabv1_2bit/best_mIoU.pth' "0, 1, 2, 3" 
+```
 
