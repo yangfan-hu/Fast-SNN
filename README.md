@@ -21,43 +21,45 @@ For network architectures, we currently support AlexNet, VGG11 (in 'CIFAR10'), R
 #### Dataset
 By default, the dataset is supposed to be in a 'data' folder at the same lavel of 'main.py'
 
-#### Training Quantized ANNs
+#### Train Quantized ANNs
 We progressively train full precision, 4, 3, and 2 bit ANN models.
 
 An example to train 32/4/3/2-bit AlexNet
 ```
-python main.py --arch alex --bit 32 -id 2 --wd 5e-4
-python main.py --arch alex --bit 4 -id 2 --wd 1e-4  --lr 4e-2 --init result/alex_32bit/model_best.pth.tar
-python main.py --arch alex --bit 3 -id 2 --wd 1e-4  --lr 4e-2 --init result/alex_4bit/model_best.pth.tar
-python main.py --arch alex --bit 2 -id 2 --wd 3e-5  --lr 4e-2 --init result/alex_3bit/model_best.pth.tar
+python main.py --arch alex --bit 32 --wd 5e-4
+python main.py --arch alex --bit 4 --wd 1e-4  --lr 4e-2 --init result/alex_32bit/model_best.pth.tar
+python main.py --arch alex --bit 3 --wd 1e-4  --lr 4e-2 --init result/alex_4bit/model_best.pth.tar
+python main.py --arch alex --bit 2 --wd 3e-5  --lr 4e-2 --init result/alex_3bit/model_best.pth.tar
 ```
 
-#### Evaluating Converted SNNs 
-
+#### Evaluate Converted SNNs 
+The time steps of SNNs are automatically calculated from activation precision, i.e., T = 2^b-1.
+```
+python snn.py --arch ARCHITECTURE --bit PRECISION -id GPU_id -e --init CHECKPOINT_PATH
+```
 
 ```
 optinal arguments:
     --u                    Use unsigned IF neuron model
 ```
+Example: AlexNet(SNN) performance with traditional unsigned IF neuron model. An 3/2-bit ANN is converted to an SNN with T=3/7.
+```
+python snn.py --arch alex --bit 3 -e -u --init result/alex_3bit/model_best.pth.tar
+python snn.py --arch alex --bit 2 -e -u --init result/alex_2bit/model_best.pth.tar
+```
+Example: AlexNet(SNN) performance with signed IF neuron model. An 3/2-bit ANN is converted to an SNN with T=3/7.
+```
+python snn.py --arch alex --bit 3 -e -u --init result/alex_3bit/model_best.pth.tar
+python snn.py --arch alex --bit 2 -e -u --init result/alex_2bit/model_best.pth.tar
+```
 
-Evaluate SNN performance with traditional unsigned IF neuron model. An 3/2-bit ANN is converted to an SNN with T=3/7.
+#### Fine-tune Converted SNNs
+By default, we use signed IF neuron model during fine-tuning. 
+Example: finetune converted SNN models. 
 ```
-python snn.py --arch alex --bit 3 -id 2 -e -u --init result/alex_3bit/model_best.pth.tar
-python snn.py --arch alex --bit 2 -id 2 -e -u --init result/alex_2bit/model_best.pth.tar
-```
-Evaluate SNN performance with signed IF neuron model. An 3/2-bit ANN is converted to an SNN with T=3/7.
-```
-python snn.py --arch alex --bit 3 -id 2 -e -u --init result/alex_3bit/model_best.pth.tar
-python snn.py --arch alex --bit 2 -id 2 -e -u --init result/alex_2bit/model_best.pth.tar
-```
+python snn_ft.py --arch alex --bit 2 --force --init result/alex_2bit/model_best.pth.tar
+python snn_ft.py --arch resnet18 --bit 2 --force --init result/resnet18_2bit/model_best.pth.tar
 
-
-#### Fine-tuning Converted SNNs
-
-Finetune converted SNN models. By default, we use signed IF neuron model during fine-tuning. 
-```
-python snn_ft.py --arch alex --bit 3 -id 2  -n 1 --force --init result/alex_3bit/model_best.pth.tar
-python snn_ft.py --arch alex --bit 2 -id 2  -n 1 --force --init result/alex_2bit/model_best.pth.tar
 ```
 
 ### ImageNet
