@@ -200,10 +200,13 @@ bash ./tools/dist_test.sh configs/voc_deeplabv1_T3.py './workdir/voc_deeplabv1_2
 ### MS COCO 20117
 
 #### Train
+
+```
 bash ./tools/dist_train.sh configs/coco_deeplabv1.py "0, 1, 2, 3, 6, 7" 
 bash ./tools/dist_train.sh configs/coco_deeplabv1_4bit.py "0, 1, 2, 3, 6, 7" 
 bash ./tools/dist_train.sh configs/coco_deeplabv1_3bit.py "0, 1, 2, 3" 
 bash ./tools/dist_train.sh configs/coco_deeplabv1_2bit.py "0, 1, 2, 3" 
+```
 
 ### Eval
 ```
