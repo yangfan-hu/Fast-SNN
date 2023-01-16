@@ -1,7 +1,35 @@
 # How to prepare yolov2-yolov3_PyTorch
 Credits to [yjh0410](https://github.com/yjh0410)
 
-# Weights
+## Update
+Recently, I optimize my YOLO project:
+
+https://github.com/yjh0410/PyTorch_YOLO-Family
+
+In my new YOLO project, you can enjoy: 
+- a new and stronger YOLOv1
+- a new and stronger YOLOv2
+- YOLOv3
+- YOLOv3 with SPP
+- YOLOv3 with DilatedEncoder
+- YOLOv4
+- YOLO-Tiny
+- YOLO-Nano
+
+
+## This project
+In this project, you can enjoy: 
+- YOLOv2 with DarkNet-19
+- YOLOv2 with ResNet-50
+- YOLOv2Slim
+- YOLOv3
+- YOLOv3-Spp
+- YOLOv3-Tiny
+
+
+I just want to provide a good YOLO project for everyone who is interested in Object Detection.
+
+## Weights
 Google Drive: https://drive.google.com/drive/folders/1T5hHyGICbFSdu6u2_vqvxn_puotvPsbd?usp=sharing 
 
 BaiDuYunDisk: https://pan.baidu.com/s/1tSylvzOVFReUAvaAxKRSwg 
