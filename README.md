@@ -201,7 +201,7 @@ python eval.py -d coco-val --cuda -v yolov2_tiny --bit 2 --spike --init CHECKPOI
 
 |   Model           |   4-bit   |   3-bit  |   2-bit  |
 | :-------:         | --------- | -------- | -------- | 
-| Tiny Yolo         | Updating  | Updating | Updating | 
+| Tiny Yolo         | [yolov2_tiny_4bit](https://drive.google.com/file/d/1ffQyGvQSV-yOytGxK9JkWC1bUsq7uxbU/view?usp=drive_link)  | [yolov2_tiny_3bit](https://drive.google.com/file/d/1GKJqxAM1k470Xfw7jBKDpff6SnzsayS3/view?usp=drive_link) | [yolov2_tiny_2bit](https://drive.google.com/file/d/1IvrYjyxnbqiYhfHEDzERU7AjV5hb3_pI/view?usp=drive_link) | 
 | YoloV2(ResNet-34) | Updating  | Updating | Updating | 
 
 
