@@ -70,12 +70,12 @@ python snn_ft.py --arch resnet56 --bit 2 -n 8 --init result/resnet56_2bit/model_
 
 |   Model   |   3-bit   |   2-bit  |
 | :-------: | --------- | -------- |  
-| AlexNet  | [alex_3bit]  | [alex_2bit] | 
-| VGG11    | [vgg11_3bit]  | [vgg11_2bit] | 
-| ResNet20 | [resnet20_3bit]  | [resnet20_2bit] | 
-| ResNet44 | [resnet44_3bit]  | [resnet44_2bit] | 
-| ResNet56 | [resnet56_3bit]  | [resnet56_2bit] | 
-| ResNet18 | [resnet18_3bit]  | [resnet18_2bit] | 
+| AlexNet  | [alex_3bit](https://drive.google.com/file/d/1V2sd5qgDsrrM0gpleiSe61vzBUbPTOZu/view?usp=drive_link)  | [alex_2bit](https://drive.google.com/file/d/1_EoFWpTNKX7eGmSJMbvMnzAF1bEGFaKQ/view?usp=drive_link) | 
+| VGG11    | [vgg11_3bit](https://drive.google.com/file/d/1KCagNVOENktLXNAfQlj4ih74zcmckJU6/view?usp=drive_link)  | [vgg11_2bit](https://drive.google.com/file/d/1ogi_ScbHFSnEZaJAaAz7aGvo1FkXOUNy/view?usp=drive_link) | 
+| ResNet20 | [resnet20_3bit](https://drive.google.com/file/d/1k9LqfJz7EXG_jT3X9PVR3Rbk00tB6Lsm/view?usp=drive_link)  | [resnet20_2bit](https://drive.google.com/file/d/13AFv8B1JDKDjy4sspyzFsSVWNOb9oA8v/view?usp=drive_link) | 
+| ResNet44 | [resnet44_3bit](https://drive.google.com/file/d/1htWdb7mNN2_Id3QaiGO0_eG8OVXXwGH8/view?usp=drive_link)  | [resnet44_2bit](https://drive.google.com/file/d/1VNOjCbTZV-t0GC-b-7_GNOHSqmxTSzqN/view?usp=drive_link) | 
+| ResNet56 | [resnet56_3bit](https://drive.google.com/file/d/1i6cJU4S7pXkA60JBRHUOkklGrNVyBiSX/view?usp=drive_link)  | [resnet56_2bit](https://drive.google.com/file/d/1Xr87673Ur51snCoLtUSedQM-prOXichC/view?usp=drive_link) | 
+| ResNet18 | [resnet18_3bit](https://drive.google.com/file/d/1t0npKS-Mt-OQYXL7mY3G1yXp6v40mAg0/view?usp=drive_link)  | [resnet18_2bit](https://drive.google.com/file/d/1XIFKSyI3LOZ9hWykQ7N3I-tISphVqWYF/view?usp=drive_link) | 
 
 ### ImageNet
 We use distributed data parallel (DDP) for training. Please refer to Pytorch [DDP](https://pytorch.org/tutorials/intermediate/ddp_tutorial.html) for details.
