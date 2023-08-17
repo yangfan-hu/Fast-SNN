@@ -201,8 +201,8 @@ python eval.py -d coco-val --cuda -v yolov2_tiny --bit 2 --spike --init CHECKPOI
 
 |   Model           |   4-bit   |   3-bit  |   2-bit  |
 | :-------:         | --------- | -------- | -------- | 
-| Tiny Yolo         | [yolov2_tiny_4bit] | [yolov2_tiny_3bit] | [yolov2_tiny_2bit] | 
-| YoloV2(ResNet-34) | Updating  | Updating | Updating | 
+| Tiny Yolo         | [yolov2_tiny_4bit](https://drive.google.com/file/d/1bOqX8HiGTV18ZT_VX6eCEKXAVqLOZ8qC/view?usp=drive_link) | [yolov2_tiny_3bit](https://drive.google.com/file/d/1yPnTvt3OJNb_SsTXAeu5XCdwjwOxPOi7/view?usp=drive_link) | [yolov2_tiny_2bit](https://drive.google.com/file/d/147OgIpON1myK9EN-re4emrSWD_wCLf_F/view?usp=drive_link) | 
+| YoloV2(ResNet-34) | [yolov2_r34_4bit](https://drive.google.com/file/d/1Z0v5J10tIMeaoOz9AvdETxcZk88FG4l4/view?usp=drive_link)  | [yolov2_r34_3bit](https://drive.google.com/file/d/1Xt7-GE1aIUhBmVNJ82G8sIEBVTfy6DIw/view?usp=drive_link) | [yolov2_r34_2bit](https://drive.google.com/file/d/1VlsSqqRnfzxL5ddls0_pMDVSTUdSiFbz/view?usp=drive_link) | 
 
 
 ## Semantic Segmentation
