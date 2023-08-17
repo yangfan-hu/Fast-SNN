@@ -256,8 +256,8 @@ bash ./tools/dist_test.sh configs/voc_deeplabv3_T3.py './workdir/voc_deeplabv3_2
 
 |   Model           |   4-bit   |   3-bit  |   2-bit  |
 | :-------:         | --------- | -------- | -------- | 
-|     VGG-9         | [voc_deeplabv1_4bit]  | [voc_deeplabv1_3bit]  | [voc_deeplabv1_2bit]  | 
-| ResNet-34 + ASPP  | [voc_deeplabv3_4bit]  | [voc_deeplabv3_3bit] | [voc_deeplabv3_2bit] | 
+|     VGG-9         | [voc_deeplabv1_4bit](https://drive.google.com/file/d/1eBOI2JeMJeOQRX7LdD_Awv-jq8B-uava/view?usp=drive_link)  | [voc_deeplabv1_3bit](https://drive.google.com/file/d/1H_AHO1v6YFzYNNYGRDY7z8U6c70emA1W/view?usp=drive_link)  | [voc_deeplabv1_2bit](https://drive.google.com/file/d/12yp-Em3_nYXKQ9_5rLCZtuuXWlxbLndx/view?usp=drive_link)  | 
+| ResNet-34 + ASPP  | [voc_deeplabv3_4bit](https://drive.google.com/file/d/1Q1jNy3Pbhv_4VZdEYkdl_fdUCjC3IuVl/view?usp=drive_link)  | [voc_deeplabv3_3bit](https://drive.google.com/file/d/1JBh4tweiHhV5-KL9fBTikirYqeyoIsdj/view?usp=drive_link) | [voc_deeplabv3_2bit](https://drive.google.com/file/d/1XLafo79ts4kM1i570X49L_BxEkpeALJd/view?usp=drive_link) | 
 
 
 ### MS COCO 2017
@@ -298,5 +298,5 @@ bash ./tools/dist_test.sh configs/coco_deeplabv3_T3.py './workdir/coco_deeplabv3
 
 |       Model       |   4-bit   |   3-bit  |   2-bit  |
 |     :-------:     | --------- | -------- | -------- | 
-|     VGG-9         | [coco_deeplabv1_4bit]  | [coco_deeplabv1_3bit] | coco_deeplabv1_2bit | 
-| ResNet-34 + ASPP  | [coco_deeplabv3_4bit]  | [coco_deeplabv3_3bit] | [coco_deeplabv3_2bit] | 
+|     VGG-9         | [coco_deeplabv1_4bit](https://drive.google.com/file/d/1PsofqHqQjaFeqtyiPrIr-ETt_X-5Cako/view?usp=drive_link)  | [coco_deeplabv1_3bit](https://drive.google.com/file/d/1GDJ75JGEAx9ofnBMAcaedM7096zHX08t/view?usp=drive_link) | coco_deeplabv1_2bit(https://drive.google.com/file/d/1IF_pAGAD1l9ViI22SovPt4aPli0L3pHx/view?usp=drive_link) | 
+| ResNet-34 + ASPP  | [coco_deeplabv3_4bit](https://drive.google.com/file/d/112EEmc8QrfsVTLG_Cga3E5EDi0lch57e/view?usp=drive_link)  | [coco_deeplabv3_3bit](https://drive.google.com/file/d/144KBnPBN_GYentw9C0Xm_EC_zG6S9oXC/view?usp=drive_link) | [coco_deeplabv3_2bit](https://drive.google.com/file/d/13c4usajtQy2BapSj_MKcLwpfwciIX0kd/view?usp=drive_link) | 
