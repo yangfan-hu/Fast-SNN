@@ -298,5 +298,5 @@ bash ./tools/dist_test.sh configs/coco_deeplabv3_T3.py './workdir/coco_deeplabv3
 
 |       Model       |   4-bit   |   3-bit  |   2-bit  |
 |     :-------:     | --------- | -------- | -------- | 
-|     VGG-9         | [coco_deeplabv1_4bit](https://drive.google.com/file/d/1PsofqHqQjaFeqtyiPrIr-ETt_X-5Cako/view?usp=drive_link)  | [coco_deeplabv1_3bit](https://drive.google.com/file/d/1GDJ75JGEAx9ofnBMAcaedM7096zHX08t/view?usp=drive_link) | coco_deeplabv1_2bit(https://drive.google.com/file/d/1IF_pAGAD1l9ViI22SovPt4aPli0L3pHx/view?usp=drive_link) | 
+|     VGG-9         | [coco_deeplabv1_4bit](https://drive.google.com/file/d/1PsofqHqQjaFeqtyiPrIr-ETt_X-5Cako/view?usp=drive_link)  | [coco_deeplabv1_3bit](https://drive.google.com/file/d/1GDJ75JGEAx9ofnBMAcaedM7096zHX08t/view?usp=drive_link) | [coco_deeplabv1_2bit](https://drive.google.com/file/d/1IF_pAGAD1l9ViI22SovPt4aPli0L3pHx/view?usp=drive_link) | 
 | ResNet-34 + ASPP  | [coco_deeplabv3_4bit](https://drive.google.com/file/d/112EEmc8QrfsVTLG_Cga3E5EDi0lch57e/view?usp=drive_link)  | [coco_deeplabv3_3bit](https://drive.google.com/file/d/144KBnPBN_GYentw9C0Xm_EC_zG6S9oXC/view?usp=drive_link) | [coco_deeplabv3_2bit](https://drive.google.com/file/d/13c4usajtQy2BapSj_MKcLwpfwciIX0kd/view?usp=drive_link) | 
