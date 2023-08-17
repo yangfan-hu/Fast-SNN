@@ -252,8 +252,8 @@ bash ./tools/dist_test.sh configs/voc_deeplabv3_T3.py './workdir/voc_deeplabv3_2
 
 |   Model           |   4-bit   |   3-bit  |   2-bit  |
 | :-------:         | --------- | -------- | -------- | 
-|     VGG-9         | Updating  | Updating | Updating | 
-| ResNet-34 + ASPP  | Updating  | Updating | Updating | 
+|     VGG-9         | [voc_deeplabv1_4bit]  | [voc_deeplabv1_3bit]  | [voc_deeplabv1_2bit]  | 
+| ResNet-34 + ASPP  | [voc_deeplabv3_4bit]  | [voc_deeplabv3_3bit] | [voc_deeplabv3_2bit] | 
 
 
 ### MS COCO 2017
@@ -292,7 +292,7 @@ bash ./tools/dist_test.sh configs/coco_deeplabv3_T3.py './workdir/coco_deeplabv3
 
 #### Checkpoints for Quantized Models
 
-|   Model           |   4-bit   |   3-bit  |   2-bit  |
-| :-------:         | --------- | -------- | -------- | 
-|     VGG-9         | Updating  | Updating | Updating | 
-| ResNet-34 + ASPP  | Updating  | Updating | Updating | 
+|       Model       |   4-bit   |   3-bit  |   2-bit  |
+|     :-------:     | --------- | -------- | -------- | 
+|     VGG-9         | [coco_deeplabv1_4bit]  | [coco_deeplabv1_3bit] | coco_deeplabv1_2bit | 
+| ResNet-34 + ASPP  | [coco_deeplabv3_4bit]  | [coco_deeplabv3_3bit] | [coco_deeplabv3_2bit] | 
