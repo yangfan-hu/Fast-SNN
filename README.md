@@ -172,8 +172,8 @@ python eval.py -d voc --cuda -v yolov2_tiny --bit 2 --spike --init CHECKPOINT_PA
 
 #### Checkpoints for Quantized Models
 
-|   Model           |   4-bit   |   3-bit  |  2-bit  |
-| :-------:         | --------- | -------- |  -------- | 
+|   Model           |   4-bit   |   3-bit  |   2-bit  |
+| :-------:         | --------- | -------- | -------- | 
 | Tiny Yolo         | Updating  | Updating | Updating | 
 | YoloV2(ResNet-34) | Updating  | Updating | Updating | 
 
