@@ -113,7 +113,7 @@ Example: AlexNEt (SNN) performance with signed IF neuron model. A 3/2-bit ANN is
 python -m torch.distributed.launch --nproc_per_node=4 snn.py -a alexnet -b 256 -e --bit 3 --init result/alexnet_3bit/model_best.pth.tar --workers 4 --dali_cpu /data/imagenet2012
 python -m torch.distributed.launch --nproc_per_node=4 snn.py -a alexnet -b 256 -e --bit 2 --init result/alexnet_2bit/model_best.pth.tar --workers 4 --dali_cpu /data/imagenet2012
 ```
-### Finetune converted SNNs 
+#### Finetune converted SNNs 
 By default, we use signed IF neuron model in fine-tuning. 
 
 Example:
@@ -121,7 +121,11 @@ Example:
 python -m torch.distributed.launch --nproc_per_node=4 snn_ft.py -a alexnet -b 128 --bit 3 -n 8 --init result/alexnet_3bit/model_best.pth.tar --workers 4 --dali_cpu /data/imagenet2012
 python -m torch.distributed.launch --nproc_per_node=4 snn_ft.py -a alexnet -b 128 --bit 2 -n 8 --init result/alexnet_2bit/model_best.pth.tar --workers 4 --dali_cpu /data/imagenet2012
 ```
+#### Checkpoints for Quantized Models
 
+|   Model   |   3-bit   |   2-bit  |
+| :-------: | --------- | -------- |  
+| ResNet-18 | Updating  | Updating | 
 
 
 ## Object Detection
@@ -166,6 +170,12 @@ python eval.py -d voc --cuda -v yolov2_tiny --bit 3 --spike --init CHECKPOINT_PA
 python eval.py -d voc --cuda -v yolov2_tiny --bit 2 --spike --init CHECKPOINT_PATH
 ```
 
+#### Checkpoints for Quantized Models
+
+|   Model   |   3-bit   |   2-bit  |  2-bit  |
+| :-------: | --------- | -------- |  -------- | 
+| ResNet-18 | Updating  | Updating | Updating | 
+
 ### MS COCO 2017
 
 ##### Train Quantized ANNs
@@ -186,7 +196,11 @@ python eval.py -d coco-val --cuda -v yolov2_tiny --bit 4 --spike --init CHECKPOI
 python eval.py -d coco-val --cuda -v yolov2_tiny --bit 3 --spike --init CHECKPOINT_PATH
 python eval.py -d coco-val --cuda -v yolov2_tiny --bit 2 --spike --init CHECKPOINT_PATH 
 ```
+#### Checkpoints for Quantized Models
 
+|   Model   |   3-bit   |   2-bit  |  2-bit  |
+| :-------: | --------- | -------- |  -------- | 
+| ResNet-18 | Updating  | Updating | Updating | 
 
 ## Semantic Segmentation
 We use [vedaseg](https://github.com/Media-Smart/vedaseg), an open source semantic segmentation toolbox based on PyTorch, as the framework for semantic segmentation.
@@ -231,6 +245,12 @@ bash ./tools/dist_test.sh configs/voc_deeplabv3_T15.py './workdir/voc_deeplabv3_
 bash ./tools/dist_test.sh configs/voc_deeplabv3_T7.py './workdir/voc_deeplabv3_3bit/best_mIoU.pth' "0, 1, 2, 3" 
 bash ./tools/dist_test.sh configs/voc_deeplabv3_T3.py './workdir/voc_deeplabv3_2bit/best_mIoU.pth' "0, 1, 2, 3" 
 ```
+#### Checkpoints for Quantized Models
+
+|   Model   |   3-bit   |   2-bit  |  2-bit  |
+| :-------: | --------- | -------- |  -------- | 
+| ResNet-18 | Updating  | Updating | Updating | 
+
 
 ### MS COCO 2017
 
@@ -265,3 +285,9 @@ bash ./tools/dist_test.sh configs/coco_deeplabv3_T15.py './workdir/coco_deeplabv
 bash ./tools/dist_test.sh configs/coco_deeplabv3_T7.py './workdir/coco_deeplabv3_3bit/best_mIoU.pth' "0, 1, 2, 3" 
 bash ./tools/dist_test.sh configs/coco_deeplabv3_T3.py './workdir/coco_deeplabv3_2bit/best_mIoU.pth' "0, 1, 2, 3" 
 ```
+
+#### Checkpoints for Quantized Models
+
+|   Model   |   3-bit   |   2-bit  |  2-bit  |
+| :-------: | --------- | -------- |  -------- | 
+| ResNet-18 | Updating  | Updating | Updating | 
