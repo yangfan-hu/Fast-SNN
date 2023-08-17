@@ -66,6 +66,12 @@ python snn_ft.py --arch alex --bit 2 --force --init result/alex_2bit/model_best.
 python snn_ft.py --arch resnet18 --bit 2 --force --init result/resnet18_2bit/model_best.pth.tar
 python snn_ft.py --arch resnet56 --bit 2 -n 8 --init result/resnet56_2bit/model_best.pth.tar
 ```
+#### Checkpoints for Quantized Models
+
+|   Model   |   3-bit   |   2-bit  |
+| :-------: | --------- | -------- |  
+| ResNet-18 | Updating  | Updating | 
+
 
 ### ImageNet
 We use distributed data parallel (DDP) for training. Please refer to Pytorch [DDP](https://pytorch.org/tutorials/intermediate/ddp_tutorial.html) for details.
