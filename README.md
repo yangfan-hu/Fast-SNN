@@ -129,8 +129,8 @@ python -m torch.distributed.launch --nproc_per_node=4 snn_ft.py -a alexnet -b 12
 
 |   Model   |   3-bit   |   2-bit  |
 | :-------: | --------- | -------- |  
-| AlexNet   | [alexnet_3bit]  | [alexnet_2bit]  | 
-| VGG16     | [vgg16_3bit]  | [vgg16_2bit] | 
+| AlexNet   | [alexnet_3bit](https://drive.google.com/file/d/1c-UXESDKheXWkwNxmIjQ1WdBwO5AkwU1/view?usp=drive_link)  | [alexnet_2bit](https://drive.google.com/file/d/1HfNpwjAi91j48Zy1nWtu4sReQ-TZaUHG/view?usp=drive_link)  | 
+| VGG16     | [vgg16_3bit](https://drive.google.com/file/d/1oZOATIzNfr4NzPVOT8OB3rT6Exlh8cXa/view?usp=drive_link)  | [vgg16_2bit](https://drive.google.com/file/d/1mqpg0iG7mHVOlRT7R-zlkYRzZzAPRWBv/view?usp=drive_link) | 
 
 ## Object Detection
 We use [yolov2-yolov3_PyTorch](https://github.com/yjh0410/yolov2-yolov3_PyTorch) as the framework for object detection.
