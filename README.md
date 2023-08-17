@@ -70,12 +70,12 @@ python snn_ft.py --arch resnet56 --bit 2 -n 8 --init result/resnet56_2bit/model_
 
 |   Model   |   3-bit   |   2-bit  |
 | :-------: | --------- | -------- |  
-| AlexNet  | Updating  | Updating | 
-| VGG11    | Updating  | Updating | 
-| ResNet20 | Updating  | Updating | 
-| ResNet44 | Updating  | Updating | 
-| ResNet56 | Updating  | Updating | 
-| ResNet18 | Updating  | Updating | 
+| AlexNet  | [alex_3bit]  | [alex_2bit] | 
+| VGG11    | [vgg11_3bit]  | [vgg11_2bit] | 
+| ResNet20 | [resnet20_3bit]  | [resnet20_2bit] | 
+| ResNet44 | [resnet44_3bit]  | [resnet44_2bit] | 
+| ResNet56 | [resnet56_3bit]  | [resnet56_2bit] | 
+| ResNet18 | [resnet18_3bit]  | [resnet18_2bit] | 
 
 ### ImageNet
 We use distributed data parallel (DDP) for training. Please refer to Pytorch [DDP](https://pytorch.org/tutorials/intermediate/ddp_tutorial.html) for details.
@@ -129,8 +129,8 @@ python -m torch.distributed.launch --nproc_per_node=4 snn_ft.py -a alexnet -b 12
 
 |   Model   |   3-bit   |   2-bit  |
 | :-------: | --------- | -------- |  
-| AlexNet   | Updating  | Updating | 
-| VGG16     | Updating  | Updating | 
+| AlexNet   | [alexnet_3bit]  | [alexnet_2bit]  | 
+| VGG16     | [vgg16_3bit]  | [vgg16_2bit] | 
 
 ## Object Detection
 We use [yolov2-yolov3_PyTorch](https://github.com/yjh0410/yolov2-yolov3_PyTorch) as the framework for object detection.
