@@ -64,7 +64,7 @@ Example: finetune converted SNN models.
 ```
 python snn_ft.py --arch alex --bit 2 --force --init result/alex_2bit/model_best.pth.tar
 python snn_ft.py --arch resnet18 --bit 2 --force --init result/resnet18_2bit/model_best.pth.tar
-python snn_ft.py --arch resnet56 --bit 2 -n 8 --init result/resnet18_2bit/model_best.pth.tar
+python snn_ft.py --arch resnet56 --bit 2 -n 8 --init result/resnet56_2bit/model_best.pth.tar
 ```
 
 ### ImageNet
@@ -224,7 +224,7 @@ bash ./tools/dist_test.sh configs/voc_deeplabv3_T7.py './workdir/voc_deeplabv3_3
 bash ./tools/dist_test.sh configs/voc_deeplabv3_T3.py './workdir/voc_deeplabv3_2bit/best_mIoU.pth' "0, 1, 2, 3" 
 ```
 
-### MS COCO 20117
+### MS COCO 2017
 
 #### Train Quantized ANNs
 
