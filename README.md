@@ -172,9 +172,10 @@ python eval.py -d voc --cuda -v yolov2_tiny --bit 2 --spike --init CHECKPOINT_PA
 
 #### Checkpoints for Quantized Models
 
-|   Model   |   3-bit   |   2-bit  |  2-bit  |
-| :-------: | --------- | -------- |  -------- | 
-| ResNet-18 | Updating  | Updating | Updating | 
+|   Model           |   4-bit   |   3-bit  |  2-bit  |
+| :-------:         | --------- | -------- |  -------- | 
+| Tiny Yolo         | Updating  | Updating | Updating | 
+| YoloV2(ResNet-34) | Updating  | Updating | Updating | 
 
 ### MS COCO 2017
 
@@ -198,9 +199,7 @@ python eval.py -d coco-val --cuda -v yolov2_tiny --bit 2 --spike --init CHECKPOI
 ```
 #### Checkpoints for Quantized Models
 
-|   Model   |   3-bit   |   2-bit  |  2-bit  |
-| :-------: | --------- | -------- |  -------- | 
-| ResNet-18 | Updating  | Updating | Updating | 
+
 
 ## Semantic Segmentation
 We use [vedaseg](https://github.com/Media-Smart/vedaseg), an open source semantic segmentation toolbox based on PyTorch, as the framework for semantic segmentation.
@@ -247,9 +246,7 @@ bash ./tools/dist_test.sh configs/voc_deeplabv3_T3.py './workdir/voc_deeplabv3_2
 ```
 #### Checkpoints for Quantized Models
 
-|   Model   |   3-bit   |   2-bit  |  2-bit  |
-| :-------: | --------- | -------- |  -------- | 
-| ResNet-18 | Updating  | Updating | Updating | 
+
 
 
 ### MS COCO 2017
@@ -288,6 +285,4 @@ bash ./tools/dist_test.sh configs/coco_deeplabv3_T3.py './workdir/coco_deeplabv3
 
 #### Checkpoints for Quantized Models
 
-|   Model   |   3-bit   |   2-bit  |  2-bit  |
-| :-------: | --------- | -------- |  -------- | 
-| ResNet-18 | Updating  | Updating | Updating | 
+
